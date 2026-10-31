@@ -1,0 +1,23 @@
+# Disposable output from the portable agent utilities.
+.agent-runtime/
+.harness-runtime/
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+
+# Optional local verification overrides may contain machine-specific commands.
+.agent/verify.toml
+.agent/stop-verify.json
+
+# Personal, machine-specific Claude Code overrides; never shared repository policy.
+.claude/settings.local.json
+
+# Harness setup writes absolute paths for this specific product worktree.
+.codex/orchestrator-harness-binding.json
+.claude/orchestrator-harness-binding.json
+.qwen/orchestrator-harness-binding.json
+
+# Disposable coding workspaces for the visualizer demo.
+/runtime/

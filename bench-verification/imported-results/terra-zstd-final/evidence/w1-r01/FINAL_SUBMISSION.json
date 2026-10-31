@@ -1,0 +1,12 @@
+{
+  "run_id": "zstd-w1-fixed-two-20261015-w1-r01",
+  "candidate_workspace": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\workspace",
+  "candidate_revision": "9a1d579e502a2e7870930a91a0dcd1610d5502a6",
+  "source_matches_commit": true,
+  "recorded_processes_absent": true,
+  "runtime_state": "CLOSED",
+  "root_segments": 4,
+  "root_ended_at_utc": "2026-10-15T17:25:45+00:00",
+  "final_workflow_audit": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\operator\\WORKFLOW_AUDIT_FINAL.json",
+  "checked_at_utc": "2026-10-15T17:26:55.306476+00:00"
+}

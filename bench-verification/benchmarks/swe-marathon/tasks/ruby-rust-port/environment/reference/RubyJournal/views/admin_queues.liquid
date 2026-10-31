@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "_layout" with main_class: "admin-queues-page" %}
+  <main class="page-admin-queues">
+    {% include "_navbar" %}
+    <h1>Job queues</h1>
+    <table class="queues-table">
+      <thead>
+        <tr><th>Type</th><th>Pending</th><th>In flight</th><th>Completed</th><th>Dead-lettered</th></tr>
+      </thead>
+      <tbody>
+        {% for q in queues %}
+          <tr class="queue-row queue-{{ q.type }}">
+            <td>{{ q.type }}</td>
+            <td>{{ q.pending }}</td>
+            <td>{{ q.in_flight }}</td>
+            <td>{{ q.completed }}</td>
+            <td>{{ q.dead_letter }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

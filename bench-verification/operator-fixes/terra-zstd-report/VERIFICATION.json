@@ -1,0 +1,83 @@
+{
+  "at_utc": "2026-10-31T13:25:07.565844+00:00",
+  "script": "bench-verification\\tools\\show_terra_zstd_scores.py",
+  "script_sha256": "551248af3da8dd221fdde1635ec1913a810ddc364243eef1c03d18dbfc35d310",
+  "actual_records_validated": {
+    "task": "zstd-decoder",
+    "model": "GPT-5.6-terra",
+    "effort": "high",
+    "selection_note": "Three selected local runs; not all local experiments.",
+    "local_runs": [
+      {
+        "run_id": "zstd-skills-four-20261015-w1-r01",
+        "run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-skills-four-20261015\\w1-r01",
+        "grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-evaluation-repair-20261015\\evaluations\\current-w1-r01\\grading.json",
+        "partial_score": 1.0,
+        "passed": 43,
+        "total": 43,
+        "hidden_passed": 37,
+        "hidden_total": 37
+      },
+      {
+        "run_id": "zstd-skills-four-20261015-w1-r02",
+        "run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-skills-four-20261015\\w1-r02",
+        "grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-evaluation-repair-20261015\\evaluations\\current-w1-r02\\grading.json",
+        "partial_score": 1.0,
+        "passed": 43,
+        "total": 43,
+        "hidden_passed": 37,
+        "hidden_total": 37
+      },
+      {
+        "run_id": "zstd-w1-fixed-two-20261015-w1-r02",
+        "run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02",
+        "grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\checkpoint-grades\\final\\grading.json",
+        "partial_score": 1.0,
+        "passed": 43,
+        "total": 43,
+        "hidden_passed": 37,
+        "hidden_total": 37
+      }
+    ],
+    "local_average": 1.0,
+    "local_best": 1.0,
+    "swe_marathon": {
+      "version": "v1.1",
+      "n": 8,
+      "average": 0.474,
+      "best": 0.581,
+      "reference_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-skills-four-20261015\\comparison-research\\zstd-decoder-released-v1.1.json",
+      "source_url": "https://www.swe-marathon.org/"
+    }
+  },
+  "checks": {
+    "terminal_exit": 0,
+    "json_exit": 0,
+    "missing_source_exit": 2
+  },
+  "viewer": {
+    "harness": "harness-single-run-version",
+    "runtime_root": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\.harness-runtime",
+    "epoch_id": "200d69c16b4a482aa2bd44ce5afe238c",
+    "speed": 40,
+    "cli_once_exit": 0,
+    "approximate_timing": true,
+    "closed": true,
+    "lanes": 6,
+    "saved_lane_text_characters": 1451690,
+    "note": "Old run has five separate epochs; this selects its final six-lane epoch. No timestamped replay journal exists."
+  },
+  "current_public_reference_check": {
+    "url": "https://www.swe-marathon.org/assets/index-Dsh1_CSb.js",
+    "sha256": "f7b28e0cceedb6621c8825ef2abacad3548fec13b3c4bca3818e518b93bf2f5f",
+    "version": "v1.1",
+    "model": "openai/gpt-5.6-terra",
+    "effort": "high",
+    "n": 8,
+    "average": 0.474,
+    "best": 0.581,
+    "matches_cached_aggregate": true
+  },
+  "source_repository_write_operations": 0,
+  "model_or_grader_launches": 0
+}

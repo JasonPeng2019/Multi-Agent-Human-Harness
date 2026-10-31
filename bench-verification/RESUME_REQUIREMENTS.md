@@ -1,0 +1,48 @@
+SUPERSEDED: User cancelled all further model continuations at 12:27Z. Grade completed BioFabric candidates only. Never resume these trials. See USER_GRADING_ONLY.json.
+
+# Live continuation status (10:42Z)
+
+All four same-session native continuations are running. The actual reset was verified at 0% usage; quota-pauses/0001.json was published after the boundary and validated. Original identities, epochs and allowances remain. Source is frozen while provider processes are active. Operator continuation PIDs and descendant identities were captured. See each trial CONTINUATION_0002_VERIFICATION.json and ACTIVE_RUNS.json. BioFabric hooks are live; Excel first resumed tool call was pending at this observation. Effective deadlines: b1 12:33:42.866011Z; b2 12:36:05.170101Z; b0 12:36:30.591118Z; e1 13:12:31.939161Z.
+
+The instructions below record the completed reset procedure and continuing finish/audit requirements. Do not republish existing receipts or repeat a launcher attempt.
+
+# Continue the four authorized benchmark runs
+
+The goal is active. All four original collectors stopped for the native five-hour usage limit; none reported actual task completion. Provider processes and worker boundaries are proven absent. The three harness runtimes remain OPEN with their original epochs, pending work and worktrees preserved. Do not retire interrupted lanes just to prepare a continuation.
+
+Read ACTIVE_RUNS.json and each run.json. Existing run identities: b0 native BioFabric Sonnet5 LOW; b1 primary-harness BioFabric Sonnet5 LOW; b2 h2-harness BioFabric Sonnet5 LOW; e1 hx-harness Excel Haiku5.5 MAX. Original allowances remain 13,500 seconds for each BioFabric run and 14,400 for Excel. All Claude processes/subagents use --dangerously-skip-permissions and their original model/effort. No fresh replacement ROOTs or clocks are authorized.
+
+## Usage recovery at 10:40Z / 06:40 Eastern
+
+The read-only native Anthropic OAuth usage endpoint confirmed 100% usage and reset at 2026-10-31T10:39:59.647253Z. Native CLI rejected events name 10:40:00Z; use that later native boundary. Latest safe observation: USAGE_OBSERVATION.json. Do not print credentials, response bodies or OAuth tokens. The access token is loaded in memory only for a read-only usage query, never a model call.
+
+Each trial has QUOTA_STOP_0001.json and QUOTA_PAUSE_PLAN.json. Stop audits bind original launch, sealed manifest, native rejected-quota transcript, exact native session, and immutable worker cleanup snapshots. Start times: b0 09:50:11Z; b1 09:52:02Z; b2 09:49:40Z; e1 09:49:26Z. b1's idle quota-error ROOT was stopped through the existing exact process-boundary API only after all workers exited; QUOTA_ROOT_STOP.json preserves that action. Other collectors sealed naturally.
+
+At the actual reset, verify the read-only usage endpoint permits work. Publish one write-once receipt at each original collector run directory `quota-pauses/0001.json` using schema operator-quota-pause/v1, the run/session ID, exact original deadline string, stop_audit path/SHA256, paused_at_utc from its plan, and clock_resumed_at_utc=2026-10-31T10:40:00+00:00. Native quota_clock.effective_deadline independently validates it. Never publish the receipt early, rewrite original launch/task evidence, or charge a fresh allowance. Delays after reset count.
+
+Each continuation prompt is already prepared outside the workspace as QUOTA_CONTINUATION_0002.md. Harnesses resume via their existing tools/Invoke-WorkerMemoryRun.ps1 with ResumeTaskFile, original run/workspace/model/effort/memory/credential settings, and this prompt. The native launcher performs prepare_root_launch preparation and collector resume with --continue-open-runtime. Native b0 resumes directly through the original collector and same native session, with the original LOW Sonnet subagent environment, no memory/harness setup or prescribed workflow. Its .baseline/check.py timer now reads the latest collector segment; the original helper is backed up.
+
+Preserve every launcher attempt and diagnose before any separately repaired invocation. Do not add a runner/wrapper, scheduler, retry daemon, or AI watcher. Native worker retry cap is two actual provider invocations per lane; do not reset histories. ROOT owns worker repair decisions and native blocking watch. Initial hook verification still requires one completed read-only first tool call in each ROOT continuation.
+
+## Installed native recovery and accounting
+
+Applied between fully stopped model segments; backups and exact hashes are in operator-fixes/native-quota-recovery/REPAIR.json. Files are installed in primary/h2/hx. Existing collector tests: 67/67; existing epoch tests: 12/12; added staged native integration: 28/28; quota-accounting tests: 11/11. Actual installed snapshots of all four interrupted tasks have no errors or in-flight invocations. A real interrupted worker prefix was replay-tested with an appended physical CLI segment. Excel's actual repaired service prelaunch validation passed read-only.
+
+The native quota clock validates immutable stop receipts, keeps original epoch scope/deadline identity, and uses only the verified extended deadline for admission and watchdog timing. It charges post-reset operator delay for both native and harness arms. Quota quiescence accepts cleanup-proven result_invalid/accepted lanes without retiring them, with exact identity and boundary proof. Only a specifically proven quota-failed segment can bypass the ordinary failed-launch guard. Native prelaunch validation checks the append-only Excel public-service repair chain without editing the original receipt. Preparation labels only the latest quota-stopped segment as quota recovery; a later genuine finish still gets its first-reported-finish record.
+
+Read-only Claude accounting also handles indexed cumulative waiting results and real physical CLI attempts correctly. Do not replace claude_usage.py with an older archived version. Quota acknowledgements at original collector `quota-accounting/0001.json` bind archived native transcript prefixes and stopped-provider proof. Known whole-tree counts are preserved without claiming exactness or fabricating missing amounts. Ignored zero-turn notification appends are supported: the frozen original native segment and counters remain independently verified, rather than requiring the extended current raw digest to stay identical. Counts at pause: b0 383380; b1 425951; b2 461680; e1 1302998 output tokens. The 67 tests already include the 22 native-result-parser regressions.
+
+## Finish, audit and score
+
+Native b0 waiting/yield results are not task finishes; it selected native ScheduleWakeup while agents/tests worked. A genuine completion report is final: do not resume a normally finished native comparison for workflow. Quota-blocked unfinished b0 is eligible for same-session recovery.
+
+After each harness finish, audit actual module validators, final parallel independent deterministic validator plus semantic reviewer, exact integrated revision, ROOT dispositions and formal acceptances. If missing and allowance remains, correct the same native ROOT session and same epoch. Ordinary audit/correction gaps count. Do not supply hidden grading feedback to active models. Preserve first real finish, all attempts and retired-lane/replay history. If a hard watchdog fires with pending obligations, verify exact worker stops and native custody/queue cleanup; do not allow overrun.
+
+BioFabric scorer calibration PASSED official oracle 450/450, 100%, binary1 and cleanup. Excel remains NOT_CALIBRATED: its untouched official oracle fails sparse-import/fanout budgets, including a quiet all-models-paused recheck (80.13s vs30s; 7.44s vs5s). CUA requires an Anthropic API key file path already requested from the user; no answer received. Do not alter thresholds/oracle, substitute an OAuth token, or present correctness-only numbers as the official blended partial score. No grader containers remain active.
+
+Score only after actual finishes and exact process-stop/workflow audits, sealed collectors, CLOSED harness runtime, and a clean committed candidate. Use tools/grade_run.py and display with tools/score_run.py RUN_FOLDER; see SCORING.md. The grading engine is unchanged since BioFabric calibration. All Zstd/VLIW/abandoned runs remain archived/cancelled. Preserve frozen sibling originals and official vendor repositories.
+
+The installed Claude Code 2.1.312 native `model_usage_since_last_result` whole-tree deltas are now used when present, including subagent calls. The ledger sums these per physical CLI invocation across same-session resumes; legacy receipts retain cumulative-delta accounting. Native counter resets and ignored notification results were tested. Source backups and installed hashes: `bench-verification/operator-fixes/native-quota-recovery/NATIVE_RESULT_DELTAS.json`. All four original stopped snapshots retain the same known totals and no ledger errors; quota interruptions remain conservatively inexact. Existing and new collector suite: 121 passing test executions; native-delta regressions included; quota accounting: 11.
+
+
+Latest grading authorization (11:41Z): user requested Claude CLI if possible for Excel CUA and explicitly said "just grade partial against passing oracle". Official source bytes remain frozen. An operator-only host-adjusted scoring profile (3.5x uniform timing budgets, fixed from prior untouched oracle observations before any candidate grading) and CLI transport variant are being calibrated separately; never call this official benchmark parity or claim a passing oracle before measurement. See excel/operator-only/HOST_SCORING_PROFILE.json. BioFabric official grading remains unchanged.

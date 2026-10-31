@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "inputs": ["source", "runner", "target"],
+  "environment": {"APP_DATA": "state", "TMP": "tmp"},
+  "checks": [
+    {"id": "unit", "inputs": ["source"], "prerequisites": []},
+    {"id": "rehearsal", "inputs": ["runner"], "prerequisites": ["unit"]},
+    {"id": "live", "inputs": ["target"], "prerequisites": ["rehearsal"]}
+  ],
+  "resources": [
+    {"id": "fixture-approval", "owner": "operator", "consumers": ["live"],
+     "kind": "attestation", "status": "PENDING",
+     "evidence": "Example only: obtain an operation-specific fixture decision before live work."}
+  ]
+}

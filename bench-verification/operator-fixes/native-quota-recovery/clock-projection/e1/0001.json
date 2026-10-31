@@ -1,0 +1,12 @@
+{
+  "run_id": "excel-haiku55-max-e1-20261031T080359Z",
+  "root_session_id": "66e7d4c5-f473-431b-88bf-0cdba17b718f",
+  "stop_audit": {
+    "path": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\root_runs\\e1\\QUOTA_STOP_0001.json",
+    "sha256": "f5d28dd2add5ba7bf9fd91694039ee5c4bd464a8ab566b20a8576adbb9f0ce4f"
+  },
+  "paused_at_utc": "2026-10-31T09:49:26+00:00",
+  "original_deadline_utc": "2026-10-31T12:21:57.939161+00:00",
+  "schema": "operator-quota-pause/v1",
+  "clock_resumed_at_utc": "2026-10-31T10:40:00+00:00"
+}

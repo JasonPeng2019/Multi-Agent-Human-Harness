@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "reason": "Real native b0 transcript emits multiple indexed cumulative whole-tree results from one physical CLI process; old parser rejects them. No provider restart or benchmark behavior change.",
+  "at_utc": "2026-10-31T08:57:27.390740+00:00",
+  "original_sha256": "863fffb43d80137daa8741451105b0bcb8d2c46e20be58d4124a8f15394f7ce2",
+  "evidence": "root_runs/b0/native-turn-accounting-before.stderr.log",
+  "tests_passed": 22,
+  "actual_native_snapshot_errors": [],
+  "actual_native_known_output_tokens": 352074,
+  "parser_sha256": "f445a7749de9265f4120ff2b291fe2fdb37ed788a908de5333e1db5f2231cb99",
+  "applied_to": [
+    "harness-single-run-version/scripts/claude_usage.py",
+    "bench-verification/h2/scripts/claude_usage.py",
+    "bench-verification/hx/scripts/claude_usage.py"
+  ],
+  "provider_restarted": false,
+  "raw_transcripts_preserved": true,
+  "scope": "Read-only token parser only; no prompt, model, worker, epoch, runtime configuration or time limit changed.",
+  "physical_worker_attempt_selection": "Native notification init/result turns stay inside the physical CLI attempt; result index reset plus new init starts the next appended CLI. Actual b1 lane-io 0,1,0 sequence now selects 2973 for first process and 80400 for resumed process, charging cumulative delta once.",
+  "live_verification": [
+    {
+      "trial": "b0",
+      "errors": [],
+      "known_output_tokens": 352074,
+      "in_flight": 1
+    },
+    {
+      "trial": "b1",
+      "errors": [],
+      "known_output_tokens": 126920,
+      "in_flight": 3
+    },
+    {
+      "trial": "b2",
+      "errors": [],
+      "known_output_tokens": 264472,
+      "in_flight": 1
+    },
+    {
+      "trial": "e1",
+      "errors": [],
+      "known_output_tokens": null,
+      "in_flight": 2
+    }
+  ],
+  "terminal_error_policy": "Preserve last reported cumulative prefix if a later error emits empty/zeroed counters; terminal_error_usage_unverified still prevents claiming exact credit."
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "read_only": true,
+  "model_launched": false,
+  "actual_clock_extended": false,
+  "checked_at_utc": "2026-10-31T10:19:57.558707+00:00",
+  "trials": [
+    {
+      "trial": "b1",
+      "status": "PASS",
+      "original_receipt_sha256": "7adce374b7cd6215a69179393d4f5a6b60628430719cf72cfdac0373e8337ff9"
+    },
+    {
+      "trial": "b2",
+      "status": "PASS",
+      "original_receipt_sha256": "5ca613dc57bc225e9e0c7bbe585d5f9b157a673c9a181ad79729870795890e26"
+    },
+    {
+      "trial": "e1",
+      "status": "PASS",
+      "original_receipt_sha256": "50ca05b5d1357e883ca09476b9a2bd74692c78178e70e533d25dcbaa76de9ea9"
+    }
+  ]
+}

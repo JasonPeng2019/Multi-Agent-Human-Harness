@@ -1,0 +1,47 @@
+{
+  "schema": "excel-calibration/v1",
+  "status": "NOT_CALIBRATED",
+  "official_oracle_modified": false,
+  "official_thresholds_modified": false,
+  "full_visual_stage": "BLOCKED_PENDING_ANTHROPIC_API_KEY_FILE",
+  "deterministic_correctness": {
+    "gates_passed": 17,
+    "gates_total": 18,
+    "tests_passed": 134,
+    "tests_total": 136,
+    "failed_gate": "perf",
+    "full_suite_case": "operator-only/correctness-oracle-20261031T082959Z/calibration.json",
+    "isolated_perf_case": "operator-only/correctness-oracle-20261031T083851Z/calibration.json",
+    "isolated_sparse_import_seconds": 69.1698777,
+    "sparse_import_limit_seconds": 30,
+    "isolated_fanout_seconds": 5.9359151,
+    "fanout_limit_seconds": 5
+  },
+  "image_id": "sha256:dec4a4eae7d3434c52156d6e811b4234b329a4e4f3b5976418ef84668f7b3480",
+  "verifier_sha256": "f67ebecdec5248339d8e9112aea6ac0d1bd5a9362f54cc48e64f82bf4b6e15f5",
+  "source_bytes": "Exact pinned Git blobs; CRLF export repaired with evidence.",
+  "diagnosis": "Both unchanged oracle performance budgets fail in a separate focused execution as well as full suite. No accepted full score or 100% calibration claimed.",
+  "recorded_at_utc": "2026-10-31T08:41:15.854328+00:00",
+  "quiet_quota_pause_perf_recheck": {
+    "record": "bench-verification\\excel\\operator-only\\correctness-oracle-20261031T095246Z\\calibration.json",
+    "status": "FAILED",
+    "cleanup_proven": true,
+    "all_model_providers_paused": true,
+    "oracle_or_thresholds_modified": false
+  },
+  "host_load_diagnosis": "operator-only/HOST_LOAD_DIAGNOSIS.json",
+  "host_load_note": "All benchmark model providers were stopped, but host CPU was still fully loaded. Existing native diagnostic monitors and unrelated applications remained; no unrelated processes were stopped.",
+  "current_authorization": "All model calls and Excel grading cancelled; unfinished e1 remains unscored.",
+  "local_cli_variant_final_outcome": {
+    "record": "operator-only/cli-oracle-20261031T120716Z/hidden-evaluation/grading.json",
+    "status": "FAILED",
+    "cleanup_proven": true,
+    "correctness_gates_passed": 18,
+    "correctness_gates_total": 18,
+    "correctness_tests_passed": 136,
+    "correctness_tests_total": 136,
+    "visual_calibration_complete": false,
+    "full_oracle_pass_claimed": false,
+    "recorded_at_utc": "2026-10-31T13:06:06.455164+00:00"
+  }
+}

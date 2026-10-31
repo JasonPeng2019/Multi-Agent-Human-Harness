@@ -1,0 +1,208 @@
+{
+  "at_utc": "2026-10-31T13:30:59.384812+00:00",
+  "status": "VERIFIED",
+  "files": [
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\manifest.json",
+      "destination": "evidence\\batch\\manifest.json",
+      "sha256": "ddb8115c8faaab40f50548decf1ae8af81dd6ee0adaf981bc53a070e45290836",
+      "bytes": 2141
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\COMPLETION.json",
+      "destination": "evidence\\batch\\COMPLETION.json",
+      "sha256": "7a5a3fd695289c384d55105b6acf3f408f35295e34bd88937f48497b83987861",
+      "bytes": 1174
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\COMPLETION_AUDIT.json",
+      "destination": "evidence\\batch\\COMPLETION_AUDIT.json",
+      "sha256": "18fe8f308e7b4ef08be297cee9739af0cce175dcdc3d9cdf79813592de81889a",
+      "bytes": 1714
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\FIRST_FINAL_SCORE_RESULTS.json",
+      "destination": "evidence\\batch\\FIRST_FINAL_SCORE_RESULTS.json",
+      "sha256": "314548ad2a21c2e3e991b4b5f6b9727c38894784d1233aee1dc2d19c562824fb",
+      "bytes": 90818
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\FINAL_USAGE_SUMMARY.json",
+      "destination": "evidence\\batch\\FINAL_USAGE_SUMMARY.json",
+      "sha256": "eeddd21bee90175c2d94a37adc8046d6ea4b0ca2e33bb5f42509760b9ea3b9f6",
+      "bytes": 1320
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\STOPPED_RUNS.json",
+      "destination": "evidence\\batch\\STOPPED_RUNS.json",
+      "sha256": "3c594eb6b60c9333505f4ae13e33cf6f1a913beab28539cfd18e0da389e8ae4f",
+      "bytes": 1185982
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\RESULTS.md",
+      "destination": "evidence\\batch\\RESULTS.md",
+      "sha256": "78eae9843125f9a36b8b01ba64f99bfbd3e3a15898510d242ebb51739b22c3d1",
+      "bytes": 5052
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\CONTINUATION.md",
+      "destination": "evidence\\batch\\CONTINUATION.md",
+      "sha256": "274961a82910edd6a9b3096a941549ab1f28ca06518728cf1c786c9a9408d266",
+      "bytes": 3040
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\INTEGRATION_ARCHIVE_CHECK_FINAL.json",
+      "destination": "evidence\\batch\\INTEGRATION_ARCHIVE_CHECK_FINAL.json",
+      "sha256": "b30fab8fdd1f9760397fdd152a8d3216ec61e9ba045543658a83bbca71e8cd45",
+      "bytes": 557
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-skills-four-20261015\\comparison-research\\zstd-decoder-released-v1.1.json",
+      "destination": "evidence\\swe-marathon-zstd-v1.1.json",
+      "sha256": "1faf51865574d4b6a71091fe09d792bdd2e2f8ddf5ead702655648fe0f563631",
+      "bytes": 383197
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-evaluation-repair-20261015\\EVALUATION_CONFIG.json",
+      "destination": "evidence\\calibration\\EVALUATION_CONFIG.json",
+      "sha256": "2eec1d21c1d6475af0b3f18aa26dbf77546959c66107485461e739ecd4b1f131",
+      "bytes": 636
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-evaluation-repair-20261015\\evaluations\\oracle-v2\\grading.json",
+      "destination": "evidence\\calibration\\evaluations\\oracle-v2\\grading.json",
+      "sha256": "e25ba4d949fba2957fa4f785b68badbb1ffa3c81196b6488f04c566278e54102",
+      "bytes": 1329
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\operator\\WORKFLOW_AUDIT_FINAL.json",
+      "destination": "evidence\\w1-r01\\WORKFLOW_AUDIT_FINAL.json",
+      "sha256": "ad3b94c24e4dd6027ba8636dbd8c0293e6033cbbf664a2935a9256286b8f45a2",
+      "bytes": 10952
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\operator\\FINAL_SUBMISSION.json",
+      "destination": "evidence\\w1-r01\\FINAL_SUBMISSION.json",
+      "sha256": "05990f514fd94e2be3e3ab35ea4059c67fb3f6048cdb1962f06db1afe1e5acf9",
+      "bytes": 702
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\operator\\checkpoint-grades\\final\\grading.json",
+      "destination": "evidence\\w1-r01\\grading.original.json",
+      "sha256": "9dc861ddfee31bd25f52ac8bcd0a73a844ba06730dc2631fc2bf88d38b83e604",
+      "bytes": 1522
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\workspace\\ROOT_RUN_PROMPT.md",
+      "destination": "evidence\\w1-r01\\ROOT_RUN_PROMPT.md",
+      "sha256": "6aef8f1f0ce62f186d81edb065a6abb6c8c1c102edda765ac81832a4b96f643c",
+      "bytes": 7942
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\workspace\\.agents\\skills\\principles\\SKILL.md",
+      "destination": "evidence\\w1-r01\\skills\\principles\\SKILL.md",
+      "sha256": "bd88465bbf95d74751e33454924658a74e67000c2852879647fab90c839805bf",
+      "bytes": 6671
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\workspace\\.agents\\skills\\plan\\SKILL.md",
+      "destination": "evidence\\w1-r01\\skills\\plan\\SKILL.md",
+      "sha256": "a43b27ea5210d7c584a4df20a9d9ff5a4f5235755b3094cfc9c139ef3d4cbff3",
+      "bytes": 2969
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\workspace\\.agents\\skills\\workflow-1\\SKILL.md",
+      "destination": "evidence\\w1-r01\\skills\\workflow-1\\SKILL.md",
+      "sha256": "60d3ac79073e4ca61a1f94c91724d8f63d7491bc491452ba10da4490751ed7a8",
+      "bytes": 4279
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\workspace\\.agents\\skills\\stay-current\\SKILL.md",
+      "destination": "evidence\\w1-r01\\skills\\stay-current\\SKILL.md",
+      "sha256": "6fda22763900401734f9820745f28cddbdf80d66da7ad83a41433d44d5ce0c05",
+      "bytes": 1405
+    },
+    {
+      "source": null,
+      "destination": "w1-r01\\hidden-evaluation\\grading.json",
+      "sha256": "12c3421091bb66b4fedfec51bcb2d83a354b06fb565c7b0ca1f2cde5b5bfd634",
+      "bytes": 1231
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\WORKFLOW_AUDIT_FINAL.json",
+      "destination": "evidence\\w1-r02\\WORKFLOW_AUDIT_FINAL.json",
+      "sha256": "bac059705938a1641723098bd6c178cfe61bf5e7ab0acef209efd5df1a227aff",
+      "bytes": 8218
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\FINAL_SUBMISSION.json",
+      "destination": "evidence\\w1-r02\\FINAL_SUBMISSION.json",
+      "sha256": "cada624c391a855fcf8b00a2f55209b7efb787379fd404dcbd9433cb845d5d4f",
+      "bytes": 702
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\checkpoint-grades\\final\\grading.json",
+      "destination": "evidence\\w1-r02\\grading.original.json",
+      "sha256": "39e8d3747634087a52a843289c6090cf16f9f3fbc877f403d8aa5ca6d7f0aab9",
+      "bytes": 1519
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\ROOT_RUN_PROMPT.md",
+      "destination": "evidence\\w1-r02\\ROOT_RUN_PROMPT.md",
+      "sha256": "6aef8f1f0ce62f186d81edb065a6abb6c8c1c102edda765ac81832a4b96f643c",
+      "bytes": 7942
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\.agents\\skills\\principles\\SKILL.md",
+      "destination": "evidence\\w1-r02\\skills\\principles\\SKILL.md",
+      "sha256": "bd88465bbf95d74751e33454924658a74e67000c2852879647fab90c839805bf",
+      "bytes": 6671
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\.agents\\skills\\plan\\SKILL.md",
+      "destination": "evidence\\w1-r02\\skills\\plan\\SKILL.md",
+      "sha256": "a43b27ea5210d7c584a4df20a9d9ff5a4f5235755b3094cfc9c139ef3d4cbff3",
+      "bytes": 2969
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\.agents\\skills\\workflow-1\\SKILL.md",
+      "destination": "evidence\\w1-r02\\skills\\workflow-1\\SKILL.md",
+      "sha256": "60d3ac79073e4ca61a1f94c91724d8f63d7491bc491452ba10da4490751ed7a8",
+      "bytes": 4279
+    },
+    {
+      "source": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\.agents\\skills\\stay-current\\SKILL.md",
+      "destination": "evidence\\w1-r02\\skills\\stay-current\\SKILL.md",
+      "sha256": "6fda22763900401734f9820745f28cddbdf80d66da7ad83a41433d44d5ce0c05",
+      "bytes": 1405
+    },
+    {
+      "source": null,
+      "destination": "w1-r02\\hidden-evaluation\\grading.json",
+      "sha256": "0a196bf5fa611a2febd64df9ba77c85b9e8a01eb022fc37c8dac085c13a81281",
+      "bytes": 1225
+    },
+    {
+      "source": null,
+      "destination": "RESULTS.json",
+      "sha256": "0be7340b8fd518fcd36663e92f805e4e8548129b0045fc23f52571acac255280",
+      "bytes": 22449
+    },
+    {
+      "source": null,
+      "source_kind": "authenticated_read_only_official_run_logs",
+      "destination": "evidence/official-terra-high-usage.json",
+      "sha256": "fec1a3314ba1fea7056f9bbe411adaff181f1e753d2de1f6e6f9e37c509b1e4f",
+      "bytes": 15583
+    }
+  ],
+  "all_imported_source_bytes_unchanged": true,
+  "source_repository_writes": 0,
+  "official_log_fetch": {
+    "at_utc": "2026-10-31T13:35:40.299529+00:00",
+    "source": "s3://ralphbench-logs/v1.1/zstd-decoder/_manifest.json",
+    "trials_checked": 8,
+    "canonical_results_and_metrics_checked": 16,
+    "credentials_serialized": false
+  }
+}

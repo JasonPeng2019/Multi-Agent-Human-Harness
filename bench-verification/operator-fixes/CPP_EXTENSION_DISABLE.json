@@ -1,0 +1,30 @@
+﻿{
+    "action":  "User-authorized permanent disable of respawning C++ extension helper",
+    "at_utc":  "2026-10-31T12:00:50.1873854Z",
+    "stopped":  [
+                    {
+                        "pid":  201332,
+                        "creation_time":  "windows-filetime:134379215538844660",
+                        "executable":  "c:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools.exe"
+                    },
+                    {
+                        "pid":  89776,
+                        "creation_time":  "windows-filetime:134379216516425518",
+                        "executable":  "c:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools.exe"
+                    }
+                ],
+    "renamed":  [
+                    {
+                        "source":  "C:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools.exe",
+                        "preserved_as":  "C:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools.exe.operator-disabled"
+                    },
+                    {
+                        "source":  "C:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools-srv.exe",
+                        "preserved_as":  "C:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools-srv.exe.operator-disabled"
+                    },
+                    {
+                        "source":  "C:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools-srv2.exe",
+                        "preserved_as":  "C:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools-srv2.exe.operator-disabled"
+                    }
+                ]
+}

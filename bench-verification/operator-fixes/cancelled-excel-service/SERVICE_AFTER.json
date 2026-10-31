@@ -1,0 +1,18 @@
+{
+  "cleanup_proven": true,
+  "creation_time": "windows-filetime:134379091855374309",
+  "harness": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\hx",
+  "pid": 95660,
+  "policy_sha256": "926c4857ae0f4428e3009a4e47df75131a1f59a4d9fc24b5df62381bed1f4676",
+  "root": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\root_runs\\e1\\w",
+  "schema": "worker-public-check-service/v1",
+  "started_at": "2026-10-31T08:33:06.937487Z",
+  "status": "STOPPED",
+  "stop_requested": true,
+  "stopped_at": "2026-10-31T12:30:04.392291Z",
+  "operator_cleanup_proof": {
+    "path": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\operator-fixes\\cancelled-excel-service\\PROOF.json",
+    "sha256": "7781b746dcac441c5b1c93f3aa29b5e313bb736ca5102c3d582db4ce92ddc4da"
+  },
+  "operator_cleanup_reconciled_at": "2026-10-31T12:31:01.374446+00:00"
+}

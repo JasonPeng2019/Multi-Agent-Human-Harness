@@ -1,0 +1,2 @@
+# Patch context lines contain meaningful spaces; preserve their LF bytes.
+vendor-patches/*.patch text eol=lf -whitespace

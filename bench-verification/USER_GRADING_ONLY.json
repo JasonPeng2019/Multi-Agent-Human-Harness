@@ -1,0 +1,53 @@
+{
+  "at_utc": "2026-10-31T12:27:51.882354+00:00",
+  "user_request": "ah....fk it. usage limits reached. just grade each one that completed.",
+  "continuations_cancelled": true,
+  "grade_reported_finish_candidates": [],
+  "unfinished_unscored": [
+    "e1"
+  ],
+  "scope_updates": [
+    {
+      "at_utc": "2026-10-31T12:52:20.370807+00:00",
+      "user_requests": [
+        "is there a way to continue the grading from where it left off and only grade the first one",
+        "im ok letting it go over its just a grader",
+        "also i didnt mean literal first one, i meant the one ur grading with all 4 cores right now"
+      ],
+      "candidate": "b1",
+      "extend_grading_time": true,
+      "reuse_completed_suites": true,
+      "new_grading_candidates": [
+        "b1"
+      ],
+      "existing_completed_grades_retained": [
+        "b0"
+      ],
+      "cancelled_unscored": [
+        "b2",
+        "e1"
+      ],
+      "model_continuations_authorized": false
+    },
+    {
+      "at_utc": "2026-10-31T13:29:30.469382+00:00",
+      "user_request": "i give up on it. just import the GPT terra scores for our final set of runs (with most recent workflow enforced) instead",
+      "new_grading_candidates": [],
+      "cancelled_unscored": [
+        "b1",
+        "b2",
+        "e1"
+      ],
+      "model_continuations_authorized": false
+    }
+  ],
+  "retained_completed_grades": [
+    "b0"
+  ],
+  "cancelled_unscored": [
+    "b1",
+    "b2",
+    "e1"
+  ],
+  "all_grading_cancelled": true
+}

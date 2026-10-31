@@ -1,0 +1,7 @@
+{% capture content %}
+<section class="error-page" role="alert">
+  <h1>{{ status | default: "Error" }}</h1>
+  <p>{{ message | default: "Something went wrong." }}</p>
+</section>
+{% endcapture %}
+{% include '_layout', title: "Error", content: content %}

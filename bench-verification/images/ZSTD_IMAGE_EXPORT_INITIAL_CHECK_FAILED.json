@@ -1,0 +1,13 @@
+{
+  "schema": "pinned-benchmark-image-export/v1",
+  "status": "FAILED",
+  "image_tag": "swe-marathon-zstd-decoder:asset-repair-v2-20261015",
+  "image_id": "sha256:cfe037596ca5fd52d050f98a75ba5b9b74fa45d909ea55002c57bab7157659fb",
+  "archive": "zstd-decoder-asset-repair-v2-20261015.docker.tar",
+  "started_at_utc": "2026-10-31T02:38:15.879647+00:00",
+  "attempts": 1,
+  "benchmark_or_container_started": false,
+  "export_exit_code": 0,
+  "error": "",
+  "finished_at_utc": "2026-10-31T02:38:25.482018+00:00"
+}

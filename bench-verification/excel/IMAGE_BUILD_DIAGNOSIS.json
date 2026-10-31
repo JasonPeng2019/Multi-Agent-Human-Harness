@@ -1,0 +1,6 @@
+{
+  "status": "DIAGNOSED",
+  "first_failure": "apt-get download segfault 139",
+  "second_failure": "new Ubuntu base /bin/sh cannot load corrupted shared library before apt starts",
+  "repair": "Use already installed proven Ubuntu 24.04 BioFabric base, remove all BioFabric source/reference/private data and Rust cache, and retain original Excel dependency/setup instructions. No model launched; never substitute a score for an infrastructure error."
+}

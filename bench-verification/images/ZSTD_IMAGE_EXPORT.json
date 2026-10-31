@@ -1,0 +1,21 @@
+{
+  "schema": "pinned-benchmark-image-export/v1",
+  "status": "EXPORTED_AND_VERIFIED",
+  "image_tag": "swe-marathon-zstd-decoder:asset-repair-v2-20261015",
+  "image_id": "sha256:cfe037596ca5fd52d050f98a75ba5b9b74fa45d909ea55002c57bab7157659fb",
+  "archive": "zstd-decoder-asset-repair-v2-20261015.docker.tar",
+  "started_at_utc": "2026-10-31T02:38:15.879647+00:00",
+  "attempts": 1,
+  "benchmark_or_container_started": false,
+  "export_exit_code": 0,
+  "finished_at_utc": "2026-10-31T02:38:25.482018+00:00",
+  "archive_sha256": "aad529f4b3bc8c56b5996dc01ed0fe476cc4925ecd75e970d7cab864c9aa59f1",
+  "archive_bytes": 166407168,
+  "verified_oci_index_digest": "sha256:cfe037596ca5fd52d050f98a75ba5b9b74fa45d909ea55002c57bab7157659fb",
+  "verified_blob_count": 20,
+  "referenced_digest_graph_verified": true,
+  "corrected_validation_assumption": "The pinned Docker image identity is an OCI index digest, not the platform config digest.",
+  "initial_check_preserved": "ZSTD_IMAGE_EXPORT_INITIAL_CHECK_FAILED.json",
+  "export_attempts": 1,
+  "validation_finished_at_utc": "2026-10-31T02:40:15.494958+00:00"
+}

@@ -1,0 +1,11 @@
+<section class="post-thread" aria-label="Comments thread">
+  {% if comments.size == 0 %}
+    <p class="empty-state">No comments yet — start the conversation.</p>
+  {% else %}
+    <ul class="comments-tree">
+      {% for c in comments %}
+        {% include "_comment" with comment: c, depth: 0 %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>

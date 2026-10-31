@@ -1,0 +1,5 @@
+{
+  "status": "FAILED",
+  "reason": "Oracle source, uploaded scripts and JSON metrics became zero-filled in container; public extraction and offline starter compilation succeeded. Diagnose container file writes; no result accepted.",
+  "container": "biofabric-preparation-4a6fcf533bd6"
+}

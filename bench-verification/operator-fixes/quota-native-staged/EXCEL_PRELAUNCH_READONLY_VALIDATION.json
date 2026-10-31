@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "staged_only": true,
+  "read_only": true,
+  "root_session_unchanged": true,
+  "validation": {
+    "receipt_path": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\root_runs\\e1\\w\\.agent-workspace\\ROOT_PRELAUNCH_SETUP.json",
+    "receipt_sha256": "50ca05b5d1357e883ca09476b9a2bd74692c78178e70e533d25dcbaa76de9ea9",
+    "prepared_at_utc": "2026-10-31T08:21:12.042729+00:00"
+  },
+  "checked_at_utc": "2026-10-31T09:39:03.434773+00:00"
+}

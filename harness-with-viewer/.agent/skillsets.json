@@ -1,0 +1,15 @@
+{
+  "schema": "portable-skillsets/v1",
+  "default": "software",
+  "skillsets": {
+    "software": [],
+    "research": [
+      "experiment-harness",
+      "repro-guard",
+      "research-claim-review",
+      "research-paper-writing",
+      "citation-verification",
+      "research-paper-review"
+    ]
+  }
+}

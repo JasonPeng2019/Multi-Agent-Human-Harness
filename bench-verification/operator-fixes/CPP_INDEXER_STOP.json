@@ -1,0 +1,9 @@
+﻿{
+    "action":  "User-authorized temporary stop of VS Code C++ indexer",
+    "pid":  245160,
+    "creation_time":  "windows-filetime:134378912743048285",
+    "executable":  "c:\\Users\\Jason\\.vscode\\extensions\\ms-vscode.cpptools-1.34.4-win32-x64\\bin\\cpptools.exe",
+    "working_set_bytes":  4981022720,
+    "observed_at_utc":  "2026-10-31T11:56:36.2312531Z",
+    "stopped_at_utc":  "2026-10-31T11:56:36.6227887Z"
+}

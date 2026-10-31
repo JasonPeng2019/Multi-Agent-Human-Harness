@@ -1,0 +1,84 @@
+diff --git a/src/everos/core/persistence/locking.py b/src/everos/core/persistence/locking.py
+index 71bb3ef..c2502d4 100644
+--- a/src/everos/core/persistence/locking.py
++++ b/src/everos/core/persistence/locking.py
+@@ -1,14 +1,13 @@
+ """Process-wide exclusive lock on a memory-root.
+ 
+-Uses ``fcntl.flock`` (POSIX advisory locking, available on Linux + macOS;
+-Windows is not supported — see project README on platform scope). The
++Uses ``portalocker`` for advisory file locking across supported platforms. The
+ public surface is an :func:`contextlib.asynccontextmanager` so callers
+ use ``async with memory_root_lock(mr):``; the underlying syscalls have
+ no async equivalent so they run in a worker thread via
+ :func:`anyio.to_thread.run_sync`.
+ 
+ **Acquisition polls with ``LOCK_NB`` instead of blocking in the thread.** A
+-blocking ``flock`` cannot be bounded or cancelled: the syscall runs in a worker
++blocking lock acquisition cannot be bounded or cancelled: it runs in a worker
+ thread, and cancelling the awaiting coroutine leaves that thread to acquire the
+ lock later with nobody left to release it — strictly worse than waiting. Short
+ non-blocking attempts on a poll interval give the same semantics while making
+@@ -21,13 +20,13 @@ message beyond ``lifespan_provider_startup``.
+ 
+ from __future__ import annotations
+ 
+-import fcntl
+ import os
+ import time
+ from collections.abc import AsyncIterator
+ from contextlib import asynccontextmanager
+ 
+ import anyio
++import portalocker
+ 
+ from everos.core.observability.logging import get_logger
+ 
+@@ -50,7 +49,7 @@ diagnosis, not recovery. The wait is already visible from the first poll
+ alive but wedged inside its critical section, the only case this bounds —
+ giving up sooner does not un-stick it: the error and the operator's next
+ move (inspect the holding process) are the same at 5 minutes or 30.
+-``flock`` is released by the kernel on process exit, so a *dead* holder
++The lock is released on process exit, so a *dead* holder
+ never needs this.
+ """
+ 
+@@ -89,7 +88,7 @@ async def memory_root_lock(
+     lock_path = memory_root.lock_file
+ 
+     # Open the anchor file (create on first use). The fd, not the path, is
+-    # what fcntl operates on. ``os.open`` is microsecond-fast but offloaded
++    # what portalocker operates on. ``os.open`` is microsecond-fast but offloaded
+     # for consistency with the rest of the lock acquisition flow.
+     fd = await anyio.to_thread.run_sync(
+         lambda: os.open(lock_path, os.O_RDWR | os.O_CREAT, 0o644)
+@@ -102,10 +101,10 @@ async def memory_root_lock(
+         while True:
+             try:
+                 await anyio.to_thread.run_sync(
+-                    fcntl.flock, fd, fcntl.LOCK_EX | fcntl.LOCK_NB
++                    portalocker.lock, fd, portalocker.LOCK_EX | portalocker.LOCK_NB
+                 )
+                 break
+-            except BlockingIOError as exc:
++            except portalocker.exceptions.LockException as exc:
+                 if not blocking:
+                     raise LockError(
+                         "another process already holds the memory-root lock "
+@@ -124,7 +123,7 @@ async def memory_root_lock(
+                         f"{time.monotonic() - started:.1f}s waiting for the "
+                         f"memory-root lock at {lock_path}. The holder is "
+                         "still alive (the kernel releases a dead process's "
+-                        "flock automatically) — inspect the process holding "
++                        "the lock automatically) — inspect the process holding "
+                         f"{lock_path} rather than retrying this one"
+                     ) from exc
+                 await anyio.sleep(_LOCK_POLL_INTERVAL_SECONDS)
+@@ -146,6 +145,6 @@ async def memory_root_lock(
+         yield
+     finally:
+         try:
+-            await anyio.to_thread.run_sync(fcntl.flock, fd, fcntl.LOCK_UN)
++            await anyio.to_thread.run_sync(portalocker.unlock, fd)
+         finally:
+             await anyio.to_thread.run_sync(os.close, fd)

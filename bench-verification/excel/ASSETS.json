@@ -1,0 +1,21 @@
+{
+  "schema": "excel-assets/v1",
+  "status": "GRADER_ENVIRONMENT_READY_API_KEY_PENDING",
+  "public_image": "swe-marathon-excel-clone:public-blob-f34867643bf0",
+  "public_image_id": "sha256:5f5f3e77ca04eb8a2cc11f79d882d4ba20348baec765e97bacf74ea31c0dd721",
+  "image": "swe-marathon-excel-clone:canonical-blob-f34867643bf0",
+  "image_id": "sha256:dec4a4eae7d3434c52156d6e811b4234b329a4e4f3b5976418ef84668f7b3480",
+  "source_revision": "f34867643bf07aec5208a861e667e01df0942099",
+  "public_environment_difference": "The public API development image includes Python, Node, uv and Playwright package. Chromium can be installed by a focused bridge command if needed. Full official browser/CUA grader environment is building independently; official grading criteria are unchanged.",
+  "anthropic_key_file": null,
+  "built_at_utc": "2026-10-31T08:20:41.168560+00:00",
+  "grader_image_ready_at_utc": "2026-10-31T08:28:58.644293+00:00",
+  "prior_grader_image": {
+    "image": "swe-marathon-excel-clone:canonical-f34867643bf0",
+    "image_id": "sha256:ccb1054ac2f045984a5a9d5e029f2951b910cb4189b12aef7aafeab754e164c6"
+  },
+  "prior_public_image": {
+    "image": "swe-marathon-excel-clone:public-f34867643bf0",
+    "image_id": "sha256:7355f1c63f59b8d4d7db9d726029223c40090f50d0e2b1b56dc52d437744751b"
+  }
+}

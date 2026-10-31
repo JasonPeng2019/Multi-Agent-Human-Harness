@@ -1,0 +1,8 @@
+{
+  "status": "STAGED_UNIT_TESTS_PASS",
+  "installed_in_live_harnesses": false,
+  "tests_passed": 10,
+  "module_sha256": "0393d0e1aeae41be9424b5babc6e2ab4367de0d1addd89a574a8fa231f13b153",
+  "scope": "Quota pause evidence validation only; native collector and same-epoch integration must be tested before a usage-limit continuation.",
+  "policy": "Pause ends exactly at provider reset; operator delay after reset counts against allowance."
+}

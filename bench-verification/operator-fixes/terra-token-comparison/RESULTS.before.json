@@ -1,0 +1,111 @@
+{
+  "schema": "imported-terra-zstd-results/v1",
+  "task": "zstd-decoder",
+  "model": "GPT-5.6-terra",
+  "effort": "high",
+  "imported_at_utc": "2026-10-31T13:30:59.121156+00:00",
+  "source_root": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing",
+  "source_batch": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015",
+  "selection_note": "Complete latest historical supervised workflow-1 Terra batch found: both arms, without filtering by score. Earlier selected successes remain a separate report.",
+  "workflow_note": "Workflow requirements were operator-supervised with same-session continuations. Recorded outcomes are deadline_expired and genuine_blocker; full workflow success is not asserted.",
+  "local_runs": [
+    {
+      "arm": "w1-r01",
+      "run_id": "zstd-w1-fixed-two-20261015-w1-r01",
+      "partial_score": 0.581,
+      "passed": 25,
+      "total": 43,
+      "hidden_passed": 22,
+      "hidden_total": 37,
+      "candidate_revision": "9a1d579e502a2e7870930a91a0dcd1610d5502a6",
+      "model": "gpt-5.6-terra",
+      "root_effort": "high",
+      "worker_effort": "high",
+      "service_tier": "default",
+      "workflow": "workflow-1",
+      "operator_assisted": true,
+      "workflow_outcome": "deadline_expired",
+      "workflow_reason": "Original absolute deadline has elapsed. All latest independent checks remain FAIL for valid source-owned defects. The last continuation verified insufficient time for repair plus mandatory revalidation and closed cleanly ten seconds before that deadline; no new worker or source change was launched.",
+      "final_pair_present": true,
+      "operator_resumes": 3,
+      "output_tokens": 284966,
+      "total_tokens": 73846992,
+      "token_total_is_exact": true,
+      "total_wall_seconds": 17989.741122,
+      "first_final_score_elapsed_seconds": 1100.741,
+      "source_run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01",
+      "source_grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\operator\\checkpoint-grades\\final\\grading.json",
+      "run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r01",
+      "grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r01\\hidden-evaluation\\grading.json"
+    },
+    {
+      "arm": "w1-r02",
+      "run_id": "zstd-w1-fixed-two-20261015-w1-r02",
+      "partial_score": 1.0,
+      "passed": 43,
+      "total": 43,
+      "hidden_passed": 37,
+      "hidden_total": 37,
+      "candidate_revision": "1fd1f7ae87e5a728a6d77e2954a9fd98a5372034",
+      "model": "gpt-5.6-terra",
+      "root_effort": "high",
+      "worker_effort": "high",
+      "service_tier": "default",
+      "workflow": "workflow-1",
+      "operator_assisted": true,
+      "workflow_outcome": "genuine_blocker",
+      "workflow_reason": "The latest integrated repair was independently revalidated, followed by a fresh final semantic reviewer and deterministic validator at the same revision. Review substantiated no remaining source-owned material gap; final deterministic FAIL is retained for two reproduced fixed caller/API limitations. Those immutable inputs cannot be changed within this run. Runtime is CLOSED and all fourteen lanes are retired.",
+      "final_pair_present": true,
+      "operator_resumes": 2,
+      "output_tokens": 432022,
+      "total_tokens": 107688169,
+      "token_total_is_exact": true,
+      "total_wall_seconds": 14883.590128,
+      "first_final_score_elapsed_seconds": 13236.59,
+      "source_run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02",
+      "source_grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\checkpoint-grades\\final\\grading.json",
+      "run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r02",
+      "grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r02\\hidden-evaluation\\grading.json"
+    }
+  ],
+  "local_average": 0.7905,
+  "local_best": 1.0,
+  "swe_marathon": {
+    "version": "v1.1",
+    "agent": "Codex",
+    "model": "openai/gpt-5.6-terra",
+    "effort": "high",
+    "n": 8,
+    "average": 0.474,
+    "best": 0.581,
+    "reference_file": "evidence/swe-marathon-zstd-v1.1.json",
+    "source_url": "https://www.swe-marathon.org/"
+  },
+  "source_metadata": [
+    {
+      "arm": "w1-r01",
+      "original_run_json_sha256": "f3591406bef04f228708aa18f19333dabef23c1945bd3392f688a94a0fae39fd",
+      "prompt_sha256": "6aef8f1f0ce62f186d81edb065a6abb6c8c1c102edda765ac81832a4b96f643c",
+      "skill_sha256": {
+        "principles": "bd88465bbf95d74751e33454924658a74e67000c2852879647fab90c839805bf",
+        "plan": "a43b27ea5210d7c584a4df20a9d9ff5a4f5235755b3094cfc9c139ef3d4cbff3",
+        "workflow-1": "60d3ac79073e4ca61a1f94c91724d8f63d7491bc491452ba10da4490751ed7a8",
+        "stay-current": "6fda22763900401734f9820745f28cddbdf80d66da7ad83a41433d44d5ce0c05"
+      }
+    },
+    {
+      "arm": "w1-r02",
+      "original_run_json_sha256": "2a44e0708231a3afe2a9109666315008211c58601eee636b319f7a5e88de782e",
+      "prompt_sha256": "6aef8f1f0ce62f186d81edb065a6abb6c8c1c102edda765ac81832a4b96f643c",
+      "skill_sha256": {
+        "principles": "bd88465bbf95d74751e33454924658a74e67000c2852879647fab90c839805bf",
+        "plan": "a43b27ea5210d7c584a4df20a9d9ff5a4f5235755b3094cfc9c139ef3d4cbff3",
+        "workflow-1": "60d3ac79073e4ca61a1f94c91724d8f63d7491bc491452ba10da4490751ed7a8",
+        "stay-current": "6fda22763900401734f9820745f28cddbdf80d66da7ad83a41433d44d5ce0c05"
+      }
+    }
+  ],
+  "model_launches": 0,
+  "grader_launches": 0,
+  "source_repository_writes": 0
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "operator-native-quota-recovery-repair/v1",
+  "status": "PASS_INSTALLED_NATIVE_CHECKS",
+  "provider_processes_absent_verified": true,
+  "original_root_launches_and_clocks_unchanged": true,
+  "existing_collector_tests_passed": 67,
+  "new_native_integration_tests_passed": 28,
+  "quota_accounting_tests_passed": 11,
+  "before_sha256": {
+    "primary": {
+      "orchestrator_harness/quota_clock.py": null,
+      "scripts/quota_accounting.py": null,
+      "scripts/public_service_repair.py": null,
+      "orchestrator_harness/collector_context.py": "e057a00ddf5f6d8945227446a82fbea7a28947cd10605ef75d3da6446f5d87ba",
+      "orchestrator_harness/epochs.py": "4662d9a68709191ba33a67e0a73110c693f59da8dcb9671c6ddaf01142c05c75",
+      "scripts/token_ledger.py": "e0931610b968663f05821eb0bd6841af642cbbbcf2244312469be9b27ded6efd",
+      "scripts/prepare_root_launch.py": "f02911c93dacceeacffd18390f45f6093f41c3f889be644723625997bbe98d51",
+      "scripts/collect_codex_usage.py": "eb63d5ed9807b5e93d13e60d9a56daced914c4d649ca70ee1f1c92689a10b7b8"
+    },
+    "h2": {
+      "orchestrator_harness/quota_clock.py": null,
+      "scripts/quota_accounting.py": null,
+      "scripts/public_service_repair.py": null,
+      "orchestrator_harness/collector_context.py": "e057a00ddf5f6d8945227446a82fbea7a28947cd10605ef75d3da6446f5d87ba",
+      "orchestrator_harness/epochs.py": "4662d9a68709191ba33a67e0a73110c693f59da8dcb9671c6ddaf01142c05c75",
+      "scripts/token_ledger.py": "e0931610b968663f05821eb0bd6841af642cbbbcf2244312469be9b27ded6efd",
+      "scripts/prepare_root_launch.py": "f02911c93dacceeacffd18390f45f6093f41c3f889be644723625997bbe98d51",
+      "scripts/collect_codex_usage.py": "eb63d5ed9807b5e93d13e60d9a56daced914c4d649ca70ee1f1c92689a10b7b8"
+    },
+    "hx": {
+      "orchestrator_harness/quota_clock.py": null,
+      "scripts/quota_accounting.py": null,
+      "scripts/public_service_repair.py": null,
+      "orchestrator_harness/collector_context.py": "e057a00ddf5f6d8945227446a82fbea7a28947cd10605ef75d3da6446f5d87ba",
+      "orchestrator_harness/epochs.py": "4662d9a68709191ba33a67e0a73110c693f59da8dcb9671c6ddaf01142c05c75",
+      "scripts/token_ledger.py": "e0931610b968663f05821eb0bd6841af642cbbbcf2244312469be9b27ded6efd",
+      "scripts/prepare_root_launch.py": "f02911c93dacceeacffd18390f45f6093f41c3f889be644723625997bbe98d51",
+      "scripts/collect_codex_usage.py": "eb63d5ed9807b5e93d13e60d9a56daced914c4d649ca70ee1f1c92689a10b7b8"
+    }
+  },
+  "after_sha256": {
+    "primary": {
+      "orchestrator_harness/quota_clock.py": "75422fab38985f7bda4be7fbc913545136fb803946a6289ee8ab6f60825e5bf0",
+      "scripts/quota_accounting.py": "f2f9dec45bf8b9544979f8b8515495b2620413a19f1c894ffcee98787d59e8d3",
+      "scripts/public_service_repair.py": "500e61f59e92ed52eb00c480f7b3477d15542efe598a0e60f3e73a422dddd664",
+      "orchestrator_harness/collector_context.py": "069cf4a95ea94a1864b6976da8b82bb6cfd5e5c95d9a8189e0d730119d989cc7",
+      "orchestrator_harness/epochs.py": "7cc7ac6220c9772c1cf1234392e61d5ff61ce3d60f4b6c70e56b2f80f3d0ac0e",
+      "scripts/token_ledger.py": "e4a9517f8397c8310637ba82ca03a71dca228b9eded4779d8963cae893837b7b",
+      "scripts/prepare_root_launch.py": "8cd2c809a649abfaf090685efc46935e8bea4acd72828081b5571b8448e5381b",
+      "scripts/collect_codex_usage.py": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5"
+    },
+    "h2": {
+      "orchestrator_harness/quota_clock.py": "75422fab38985f7bda4be7fbc913545136fb803946a6289ee8ab6f60825e5bf0",
+      "scripts/quota_accounting.py": "f2f9dec45bf8b9544979f8b8515495b2620413a19f1c894ffcee98787d59e8d3",
+      "scripts/public_service_repair.py": "500e61f59e92ed52eb00c480f7b3477d15542efe598a0e60f3e73a422dddd664",
+      "orchestrator_harness/collector_context.py": "069cf4a95ea94a1864b6976da8b82bb6cfd5e5c95d9a8189e0d730119d989cc7",
+      "orchestrator_harness/epochs.py": "7cc7ac6220c9772c1cf1234392e61d5ff61ce3d60f4b6c70e56b2f80f3d0ac0e",
+      "scripts/token_ledger.py": "e4a9517f8397c8310637ba82ca03a71dca228b9eded4779d8963cae893837b7b",
+      "scripts/prepare_root_launch.py": "8cd2c809a649abfaf090685efc46935e8bea4acd72828081b5571b8448e5381b",
+      "scripts/collect_codex_usage.py": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5"
+    },
+    "hx": {
+      "orchestrator_harness/quota_clock.py": "75422fab38985f7bda4be7fbc913545136fb803946a6289ee8ab6f60825e5bf0",
+      "scripts/quota_accounting.py": "f2f9dec45bf8b9544979f8b8515495b2620413a19f1c894ffcee98787d59e8d3",
+      "scripts/public_service_repair.py": "500e61f59e92ed52eb00c480f7b3477d15542efe598a0e60f3e73a422dddd664",
+      "orchestrator_harness/collector_context.py": "069cf4a95ea94a1864b6976da8b82bb6cfd5e5c95d9a8189e0d730119d989cc7",
+      "orchestrator_harness/epochs.py": "7cc7ac6220c9772c1cf1234392e61d5ff61ce3d60f4b6c70e56b2f80f3d0ac0e",
+      "scripts/token_ledger.py": "e4a9517f8397c8310637ba82ca03a71dca228b9eded4779d8963cae893837b7b",
+      "scripts/prepare_root_launch.py": "8cd2c809a649abfaf090685efc46935e8bea4acd72828081b5571b8448e5381b",
+      "scripts/collect_codex_usage.py": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5"
+    }
+  },
+  "installed_at_utc": "2026-10-31T09:57:11.393691+00:00",
+  "native_collector_tests_passed": 67,
+  "native_epoch_tests_passed": 12,
+  "actual_four_trial_snapshots_passed": true,
+  "provider_relaunched": false,
+  "verified_at_utc": "2026-10-31T09:57:51.395722+00:00",
+  "additional_fixes": [
+    {
+      "reason": "Preserve first genuine finish after a prior quota recovery; distinguish latest-segment reason from historical clock receipts",
+      "integration_tests_passed": 28,
+      "before": {
+        "primary": {
+          "scripts/collect_codex_usage.py": "04e23b59d4dd9a8d87a7d9a903ed388b888ca2285451205ebf37dcea8ef046b6",
+          "scripts/prepare_root_launch.py": "27507dee62dec7025c59bc3933b6f5b73fae526265387cc112c3aa6b81abf21b"
+        },
+        "h2": {
+          "scripts/collect_codex_usage.py": "04e23b59d4dd9a8d87a7d9a903ed388b888ca2285451205ebf37dcea8ef046b6",
+          "scripts/prepare_root_launch.py": "27507dee62dec7025c59bc3933b6f5b73fae526265387cc112c3aa6b81abf21b"
+        },
+        "hx": {
+          "scripts/collect_codex_usage.py": "04e23b59d4dd9a8d87a7d9a903ed388b888ca2285451205ebf37dcea8ef046b6",
+          "scripts/prepare_root_launch.py": "27507dee62dec7025c59bc3933b6f5b73fae526265387cc112c3aa6b81abf21b"
+        }
+      },
+      "after": {
+        "primary": {
+          "scripts/collect_codex_usage.py": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5",
+          "scripts/prepare_root_launch.py": "8cd2c809a649abfaf090685efc46935e8bea4acd72828081b5571b8448e5381b"
+        },
+        "h2": {
+          "scripts/collect_codex_usage.py": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5",
+          "scripts/prepare_root_launch.py": "8cd2c809a649abfaf090685efc46935e8bea4acd72828081b5571b8448e5381b"
+        },
+        "hx": {
+          "scripts/collect_codex_usage.py": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5",
+          "scripts/prepare_root_launch.py": "8cd2c809a649abfaf090685efc46935e8bea4acd72828081b5571b8448e5381b"
+        }
+      },
+      "applied_at_utc": "2026-10-31T10:01:03.305676+00:00"
+    },
+    {
+      "reason": "Allow ignored native zero-turn notification append while independently validating the frozen original segment and counters",
+      "accounting_tests_passed": 11,
+      "applied_at_utc": "2026-10-31T10:12:52.983247+00:00",
+      "before": {
+        "primary": "0ed38ca50eafd0a3800f48d613ead06988ad8d5bfed96e0799716ba5f880a0ab",
+        "h2": "0ed38ca50eafd0a3800f48d613ead06988ad8d5bfed96e0799716ba5f880a0ab",
+        "hx": "0ed38ca50eafd0a3800f48d613ead06988ad8d5bfed96e0799716ba5f880a0ab"
+      },
+      "after": {
+        "primary": "f2f9dec45bf8b9544979f8b8515495b2620413a19f1c894ffcee98787d59e8d3",
+        "h2": "f2f9dec45bf8b9544979f8b8515495b2620413a19f1c894ffcee98787d59e8d3",
+        "hx": "f2f9dec45bf8b9544979f8b8515495b2620413a19f1c894ffcee98787d59e8d3"
+      }
+    }
+  ],
+  "native_timer_repair": {
+    "before_sha256": "4c0de7e08a8f856a53d361f118a49dfc0522b6870be6debaf495c6cd3da14360",
+    "after_sha256": "e69b6057eff5138d537fde26a772cc760c93f3611e94b5998c41eae26491b482",
+    "path": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\root_runs\\b0\\w\\.baseline\\check.py",
+    "reason": "Read latest collector segment deadline after quota continuation",
+    "fixture_check": "PASS",
+    "benchmark_task_implementation_changed": false
+  },
+  "native_operator_continuation_tests_after_first_finish_fix": 9
+}

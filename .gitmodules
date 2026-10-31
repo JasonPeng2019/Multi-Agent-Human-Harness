@@ -1,0 +1,16 @@
+[submodule "harness-with-viewer/harness/vendor/everos"]
+	path = harness-with-viewer/harness/vendor/everos
+	url = https://github.com/EverMind-AI/EverOS.git
+	shallow = true
+[submodule "harness-with-viewer/harness/vendor/langchain-mongodb"]
+	path = harness-with-viewer/harness/vendor/langchain-mongodb
+	url = https://github.com/langchain-ai/langchain-mongodb.git
+	shallow = true
+[submodule "harness-single-run-version/vendor/everos"]
+	path = harness-single-run-version/vendor/everos
+	url = https://github.com/EverMind-AI/EverOS.git
+	shallow = true
+[submodule "harness-single-run-version/vendor/langchain-mongodb"]
+	path = harness-single-run-version/vendor/langchain-mongodb
+	url = https://github.com/langchain-ai/langchain-mongodb.git
+	shallow = true

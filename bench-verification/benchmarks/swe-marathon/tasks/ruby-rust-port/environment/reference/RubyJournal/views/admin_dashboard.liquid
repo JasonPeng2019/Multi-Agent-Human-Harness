@@ -1,0 +1,19 @@
+{% capture content %}
+<section class="admin" aria-label="Admin">
+  <h1>Admin dashboard</h1>
+  <ul class="admin-stats">
+    <li>Accounts: {{ stats.accounts }}</li>
+    <li>Posts: {{ stats.posts }}</li>
+    <li>Comments: {{ stats.comments }}</li>
+    <li>Media: {{ stats.media }}</li>
+    <li>Bytes: {{ stats.bytes }}</li>
+  </ul>
+  <h2>Queues</h2>
+  <ul class="admin-queues">
+    {% for q in queues %}
+      <li>{{ q.type }}: pending {{ q.pending }}, dead-letter {{ q.dead_letter }}, processed {{ q.processed_total }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endcapture %}
+{% include '_layout', title: "Admin", content: content %}

@@ -1,0 +1,17 @@
+{
+  "at_utc": "2026-10-31T12:23:28.437413+00:00",
+  "installed": false,
+  "files": [
+    {
+      "relative_path": "orchestrator_harness/quota_clock.py",
+      "before_sha256": "75422fab38985f7bda4be7fbc913545136fb803946a6289ee8ab6f60825e5bf0",
+      "after_sha256": "8561db7d1826dc80b702a2fecab7b747f600ce019f64c493fd8214e0c76e335a"
+    },
+    {
+      "relative_path": "scripts/collect_codex_usage.py",
+      "before_sha256": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5",
+      "after_sha256": "204ae24db4ee2f82e199ce604a9a5068e7d34b742bab09de470c53edd1c62ee9"
+    }
+  ],
+  "install_policy": "Only after that harness ROOT and all owned providers are absent and collector manifests sealed. Native launcher only; same session/epoch. All ordinary gaps charged."
+}

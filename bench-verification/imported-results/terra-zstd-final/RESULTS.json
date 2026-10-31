@@ -1,0 +1,519 @@
+{
+  "schema": "imported-terra-zstd-results/v1",
+  "task": "zstd-decoder",
+  "model": "GPT-5.6-terra",
+  "effort": "high",
+  "imported_at_utc": "2026-10-31T13:30:59.121156+00:00",
+  "source_root": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing",
+  "source_batch": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015",
+  "selection_note": "Complete latest historical supervised workflow-1 Terra batch found: both arms, without filtering by score. Earlier selected successes remain a separate report.",
+  "workflow_note": "Workflow requirements were operator-supervised with same-session continuations. Recorded outcomes are deadline_expired and genuine_blocker; full workflow success is not asserted.",
+  "local_runs": [
+    {
+      "arm": "w1-r01",
+      "run_id": "zstd-w1-fixed-two-20261015-w1-r01",
+      "partial_score": 0.581,
+      "passed": 25,
+      "total": 43,
+      "hidden_passed": 22,
+      "hidden_total": 37,
+      "candidate_revision": "9a1d579e502a2e7870930a91a0dcd1610d5502a6",
+      "model": "gpt-5.6-terra",
+      "root_effort": "high",
+      "worker_effort": "high",
+      "service_tier": "default",
+      "workflow": "workflow-1",
+      "operator_assisted": true,
+      "workflow_outcome": "deadline_expired",
+      "workflow_reason": "Original absolute deadline has elapsed. All latest independent checks remain FAIL for valid source-owned defects. The last continuation verified insufficient time for repair plus mandatory revalidation and closed cleanly ten seconds before that deadline; no new worker or source change was launched.",
+      "final_pair_present": true,
+      "operator_resumes": 3,
+      "output_tokens": 284966,
+      "total_tokens": 73846992,
+      "token_total_is_exact": true,
+      "total_wall_seconds": 17989.741122,
+      "first_final_score_elapsed_seconds": 1100.741,
+      "source_run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01",
+      "source_grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r01\\operator\\checkpoint-grades\\final\\grading.json",
+      "run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r01",
+      "grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r01\\hidden-evaluation\\grading.json",
+      "output_vs_official_mean": 8.359532103699902
+    },
+    {
+      "arm": "w1-r02",
+      "run_id": "zstd-w1-fixed-two-20261015-w1-r02",
+      "partial_score": 1.0,
+      "passed": 43,
+      "total": 43,
+      "hidden_passed": 37,
+      "hidden_total": 37,
+      "candidate_revision": "1fd1f7ae87e5a728a6d77e2954a9fd98a5372034",
+      "model": "gpt-5.6-terra",
+      "root_effort": "high",
+      "worker_effort": "high",
+      "service_tier": "default",
+      "workflow": "workflow-1",
+      "operator_assisted": true,
+      "workflow_outcome": "genuine_blocker",
+      "workflow_reason": "The latest integrated repair was independently revalidated, followed by a fresh final semantic reviewer and deterministic validator at the same revision. Review substantiated no remaining source-owned material gap; final deterministic FAIL is retained for two reproduced fixed caller/API limitations. Those immutable inputs cannot be changed within this run. Runtime is CLOSED and all fourteen lanes are retired.",
+      "final_pair_present": true,
+      "operator_resumes": 2,
+      "output_tokens": 432022,
+      "total_tokens": 107688169,
+      "token_total_is_exact": true,
+      "total_wall_seconds": 14883.590128,
+      "first_final_score_elapsed_seconds": 13236.59,
+      "source_run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02",
+      "source_grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\checkpoint-grades\\final\\grading.json",
+      "run_folder": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r02",
+      "grade_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\imported-results\\terra-zstd-final\\w1-r02\\hidden-evaluation\\grading.json",
+      "output_vs_official_mean": 12.673447985039052
+    }
+  ],
+  "local_average": 0.7905,
+  "local_best": 1.0,
+  "swe_marathon": {
+    "version": "v1.1",
+    "agent": "Codex",
+    "model": "openai/gpt-5.6-terra",
+    "effort": "high",
+    "n": 8,
+    "average": 0.473875,
+    "best": 0.581,
+    "reference_file": "evidence/official-terra-high-usage.json",
+    "source_url": "https://github.com/abundant-ai/swe-marathon/blob/main/scripts/read-swe-marathon-logs.py",
+    "source": "s3://ralphbench-logs/v1.1/zstd-decoder/_manifest.json",
+    "mean_output_tokens": 34088.75,
+    "max_output_tokens": 45604,
+    "best_score_trial_output_tokens": 36461,
+    "best_score_trial": "zstd-decoder-879",
+    "trials": [
+      {
+        "trial": "zstd-decoder-1004",
+        "manifest_trial_id": "zstd-decoder-72bbfded-1004",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.442,
+        "passed": 19,
+        "total": 43,
+        "output_tokens": 36154,
+        "input_tokens": 4753395,
+        "cached_input_tokens": 4656960,
+        "manifest_output_tokens": 36154,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-1004",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-l1dsu__YAGhJnM",
+          "input_tokens": 4753395,
+          "cache_tokens": 4656960,
+          "output_tokens": 36154,
+          "started_at": "2026-08-06T09:26:59.398381Z",
+          "finished_at": "2026-08-06T09:36:08.051675Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 16,
+          "hidden_failed": 21,
+          "hidden_total": 37,
+          "total_passed": 19,
+          "total_tests": 43,
+          "partial_score": 0.442
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "e2ac4fc49228e5343bc0eeb9c9b9e46d1eba2709896e5ff985c152552e7bae1b",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-1004/task-zstd-decoder-72bbfded-l1dsu__YAGhJnM/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "68aa569c93ec830797d7d789d98231426c14c0b643da7b4d7a9135bd1767a387",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-1004/task-zstd-decoder-72bbfded-l1dsu__YAGhJnM/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      },
+      {
+        "trial": "zstd-decoder-878",
+        "manifest_trial_id": "zstd-decoder-72bbfded-878",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.535,
+        "passed": 23,
+        "total": 43,
+        "output_tokens": 36711,
+        "input_tokens": 3960792,
+        "cached_input_tokens": 3871937,
+        "manifest_output_tokens": 36711,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-878",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-687m1__E6dam6M",
+          "input_tokens": 3960792,
+          "cache_tokens": 3871937,
+          "output_tokens": 36711,
+          "started_at": "2026-08-04T21:47:52.578809Z",
+          "finished_at": "2026-08-04T21:56:55.802149Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 20,
+          "hidden_failed": 17,
+          "hidden_total": 37,
+          "total_passed": 23,
+          "total_tests": 43,
+          "partial_score": 0.535
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "73e1e0b82bec8bfd1e470bacaf06e25c8b426f0c483f9c4b88f0c293202b6453",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-878/task-zstd-decoder-72bbfded-687m1__E6dam6M/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "cc44de7d825c33ee7f72648045fcad0845e28207cd3dc09d1162c733bf0597c5",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-878/task-zstd-decoder-72bbfded-687m1__E6dam6M/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      },
+      {
+        "trial": "zstd-decoder-879",
+        "manifest_trial_id": "zstd-decoder-72bbfded-879",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.581,
+        "passed": 25,
+        "total": 43,
+        "output_tokens": 36461,
+        "input_tokens": 5287003,
+        "cached_input_tokens": 5192773,
+        "manifest_output_tokens": 36461,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-879",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-2yyzq__93cWFsU",
+          "input_tokens": 5287003,
+          "cache_tokens": 5192773,
+          "output_tokens": 36461,
+          "started_at": "2026-08-04T21:47:57.840413Z",
+          "finished_at": "2026-08-04T21:56:14.267211Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 22,
+          "hidden_failed": 15,
+          "hidden_total": 37,
+          "total_passed": 25,
+          "total_tests": 43,
+          "partial_score": 0.581
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "b73540e15df390e005450fad3a270b4f49f71926b3e3a2e4e554216284a4f419",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-879/task-zstd-decoder-72bbfded-2yyzq__93cWFsU/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "eacfdbfe8bd1307a6c035cae21aa9fb5489d93b7951c5d2a8b1af92de840fe98",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-879/task-zstd-decoder-72bbfded-2yyzq__93cWFsU/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      },
+      {
+        "trial": "zstd-decoder-889",
+        "manifest_trial_id": "zstd-decoder-72bbfded-889",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.442,
+        "passed": 19,
+        "total": 43,
+        "output_tokens": 32854,
+        "input_tokens": 3590337,
+        "cached_input_tokens": 3505419,
+        "manifest_output_tokens": 32854,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-889",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-zr0uu__k2AxE2T",
+          "input_tokens": 3590337,
+          "cache_tokens": 3505419,
+          "output_tokens": 32854,
+          "started_at": "2026-08-05T01:15:25.758634Z",
+          "finished_at": "2026-08-05T01:23:02.037385Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 16,
+          "hidden_failed": 21,
+          "hidden_total": 37,
+          "total_passed": 19,
+          "total_tests": 43,
+          "partial_score": 0.442
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "e7118f27ace58cfe98db2fb00c63e7d46d2d8b6ba538ce4889aecd7b52e62934",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-889/task-zstd-decoder-72bbfded-zr0uu__k2AxE2T/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "68aa569c93ec830797d7d789d98231426c14c0b643da7b4d7a9135bd1767a387",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-889/task-zstd-decoder-72bbfded-zr0uu__k2AxE2T/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      },
+      {
+        "trial": "zstd-decoder-890",
+        "manifest_trial_id": "zstd-decoder-72bbfded-890",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.372,
+        "passed": 16,
+        "total": 43,
+        "output_tokens": 31649,
+        "input_tokens": 3757280,
+        "cached_input_tokens": 3677207,
+        "manifest_output_tokens": 31649,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-890",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-6794k__oEcM5ij",
+          "input_tokens": 3757280,
+          "cache_tokens": 3677207,
+          "output_tokens": 31649,
+          "started_at": "2026-08-05T01:17:37.830329Z",
+          "finished_at": "2026-08-05T01:23:34.169067Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 13,
+          "hidden_failed": 24,
+          "hidden_total": 37,
+          "total_passed": 16,
+          "total_tests": 43,
+          "partial_score": 0.372
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "5f5a169ecee2841a276e9ceb603dccb0c19fff00f2855739295753afeeae67f7",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-890/task-zstd-decoder-72bbfded-6794k__oEcM5ij/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "1c57cbb5b1e99ec44de3b4ccf6baa99066f2a4289ba26ba5f835fc28bf929b9d",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-890/task-zstd-decoder-72bbfded-6794k__oEcM5ij/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      },
+      {
+        "trial": "zstd-decoder-891",
+        "manifest_trial_id": "zstd-decoder-72bbfded-891",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.558,
+        "passed": 24,
+        "total": 43,
+        "output_tokens": 28041,
+        "input_tokens": 2595775,
+        "cached_input_tokens": 2515899,
+        "manifest_output_tokens": 28041,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-891",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-gnnjl__W2wunVW",
+          "input_tokens": 2595775,
+          "cache_tokens": 2515899,
+          "output_tokens": 28041,
+          "started_at": "2026-08-05T01:16:11.318074Z",
+          "finished_at": "2026-08-05T01:22:04.099631Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 21,
+          "hidden_failed": 16,
+          "hidden_total": 37,
+          "total_passed": 24,
+          "total_tests": 43,
+          "partial_score": 0.558
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "a5017479453ae579af90ace7939f743d0558a570072346eb407cc1cb69d315c5",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-891/task-zstd-decoder-72bbfded-gnnjl__W2wunVW/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "cdcd5c8f9f53c7d3131018ccbf10da20be41cb5ed7515157f8ec5283a0bb037f",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-891/task-zstd-decoder-72bbfded-gnnjl__W2wunVW/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      },
+      {
+        "trial": "zstd-decoder-892",
+        "manifest_trial_id": "zstd-decoder-72bbfded-892",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.512,
+        "passed": 22,
+        "total": 43,
+        "output_tokens": 45604,
+        "input_tokens": 6534816,
+        "cached_input_tokens": 6428570,
+        "manifest_output_tokens": 45604,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-892",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-ifco8__WaCCr5C",
+          "input_tokens": 6534816,
+          "cache_tokens": 6428570,
+          "output_tokens": 45604,
+          "started_at": "2026-08-05T01:17:10.607887Z",
+          "finished_at": "2026-08-05T01:25:57.409347Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 19,
+          "hidden_failed": 18,
+          "hidden_total": 37,
+          "total_passed": 22,
+          "total_tests": 43,
+          "partial_score": 0.512
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "f93fe6bb19911944c4ab5f091496b0f81c5576a1aaeea476f666fb27650409cf",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-892/task-zstd-decoder-72bbfded-ifco8__WaCCr5C/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "ff627bec35de965c92a045d766212fae1ce108e95d77720e89386a2d3db1c3d4",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-892/task-zstd-decoder-72bbfded-ifco8__WaCCr5C/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      },
+      {
+        "trial": "zstd-decoder-894",
+        "manifest_trial_id": "zstd-decoder-72bbfded-894",
+        "model": "openai/gpt-5.6-terra",
+        "agent": "codex",
+        "effort": "high",
+        "partial_score": 0.349,
+        "passed": 15,
+        "total": 43,
+        "output_tokens": 25236,
+        "input_tokens": 2558055,
+        "cached_input_tokens": 2471994,
+        "manifest_output_tokens": 25236,
+        "manifest_entry": {
+          "model": "openai/gpt-5.6-terra",
+          "agent": "codex",
+          "reasoning_effort": "high",
+          "source_trial_name": "zstd-decoder-894",
+          "canonical_attempt_dir": "task-zstd-decoder-72bbfded-irfhn__sjfsmfU",
+          "input_tokens": 2558055,
+          "cache_tokens": 2471994,
+          "output_tokens": 25236,
+          "started_at": "2026-08-05T01:14:51.242022Z",
+          "finished_at": "2026-08-05T01:20:58.760654Z"
+        },
+        "verifier_metrics": {
+          "public_passed": 3,
+          "public_failed": 3,
+          "public_total": 6,
+          "hidden_passed": 12,
+          "hidden_failed": 25,
+          "hidden_total": 37,
+          "total_passed": 15,
+          "total_tests": 43,
+          "partial_score": 0.349
+        },
+        "evidence": {
+          "result.json": {
+            "sha256": "4a8c425452d10310933e6b34f620a2a25f872cf5af8b020bcc304d193137c3c7",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-894/task-zstd-decoder-72bbfded-irfhn__sjfsmfU/result.json",
+            "http_status": 200
+          },
+          "verifier/metrics.json": {
+            "sha256": "f8406aa7e7e1d43219be3525b3d6a61cbc63b2cb5bda5ce77b73fb7293a9bb3f",
+            "source_key": "v1.1/zstd-decoder/zstd-decoder-72bbfded-894/task-zstd-decoder-72bbfded-irfhn__sjfsmfU/verifier/metrics.json",
+            "http_status": 200
+          }
+        }
+      }
+    ]
+  },
+  "source_metadata": [
+    {
+      "arm": "w1-r01",
+      "original_run_json_sha256": "f3591406bef04f228708aa18f19333dabef23c1945bd3392f688a94a0fae39fd",
+      "prompt_sha256": "6aef8f1f0ce62f186d81edb065a6abb6c8c1c102edda765ac81832a4b96f643c",
+      "skill_sha256": {
+        "principles": "bd88465bbf95d74751e33454924658a74e67000c2852879647fab90c839805bf",
+        "plan": "a43b27ea5210d7c584a4df20a9d9ff5a4f5235755b3094cfc9c139ef3d4cbff3",
+        "workflow-1": "60d3ac79073e4ca61a1f94c91724d8f63d7491bc491452ba10da4490751ed7a8",
+        "stay-current": "6fda22763900401734f9820745f28cddbdf80d66da7ad83a41433d44d5ce0c05"
+      }
+    },
+    {
+      "arm": "w1-r02",
+      "original_run_json_sha256": "2a44e0708231a3afe2a9109666315008211c58601eee636b319f7a5e88de782e",
+      "prompt_sha256": "6aef8f1f0ce62f186d81edb065a6abb6c8c1c102edda765ac81832a4b96f643c",
+      "skill_sha256": {
+        "principles": "bd88465bbf95d74751e33454924658a74e67000c2852879647fab90c839805bf",
+        "plan": "a43b27ea5210d7c584a4df20a9d9ff5a4f5235755b3094cfc9c139ef3d4cbff3",
+        "workflow-1": "60d3ac79073e4ca61a1f94c91724d8f63d7491bc491452ba10da4490751ed7a8",
+        "stay-current": "6fda22763900401734f9820745f28cddbdf80d66da7ad83a41433d44d5ce0c05"
+      }
+    }
+  ],
+  "model_launches": 0,
+  "grader_launches": 0,
+  "source_repository_writes": 0,
+  "output_token_comparison": {
+    "local_mean_output_tokens": 358494,
+    "official_mean_output_tokens": 34088.75,
+    "official_max_output_tokens": 45604,
+    "local_output_includes": "ROOT plus all workers, including reasoning output.",
+    "official_output_basis": "Official manifest output_tokens, independently matched to canonical result agent_result.n_output_tokens; not input+output totals."
+  }
+}

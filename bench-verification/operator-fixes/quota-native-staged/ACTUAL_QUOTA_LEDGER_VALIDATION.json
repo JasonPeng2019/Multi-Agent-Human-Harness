@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "read_only": true,
+  "staged_only": true,
+  "trials": [
+    {
+      "trial": "b0",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 383380,
+      "exact": false,
+      "interrupted": 1
+    },
+    {
+      "trial": "b1",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 425951,
+      "exact": false,
+      "interrupted": 2
+    },
+    {
+      "trial": "b2",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 461680,
+      "exact": false,
+      "interrupted": 2
+    },
+    {
+      "trial": "e1",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 1302998,
+      "exact": false,
+      "interrupted": 1
+    }
+  ],
+  "checked_at_utc": "2026-10-31T09:54:07.529338+00:00"
+}

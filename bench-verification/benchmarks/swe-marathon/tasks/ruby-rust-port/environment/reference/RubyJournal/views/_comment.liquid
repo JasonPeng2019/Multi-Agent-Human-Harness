@@ -1,0 +1,7 @@
+<article class="comment" data-comment-id="{{ comment.id }}">
+  <header>
+    <a href="/users/{{ comment.author.username }}"><strong>{{ comment.author.display_name }}</strong></a>
+    <time datetime="{{ comment.created_at }}">{{ comment.created_at | humanize_time }}</time>
+  </header>
+  <div class="comment-body">{{ comment.body_html }}</div>
+</article>

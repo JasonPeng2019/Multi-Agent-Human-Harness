@@ -1,0 +1,52 @@
+[
+  {
+    "arm": "w1-r01",
+    "token_total_is_exact": true,
+    "roles": {
+      "root": {
+        "invocations": 4,
+        "total_tokens": 27651080,
+        "input_tokens": 27586500,
+        "cached_input_tokens": 26958592,
+        "output_tokens": 64580,
+        "reasoning_output_tokens": 15708
+      },
+      "worker": {
+        "invocations": 13,
+        "total_tokens": 46195912,
+        "input_tokens": 45975526,
+        "cached_input_tokens": 44460288,
+        "output_tokens": 220386,
+        "reasoning_output_tokens": 86883
+      }
+    },
+    "total": 73846992,
+    "resumes": 3,
+    "paused_wall_seconds": 2229.923
+  },
+  {
+    "arm": "w1-r02",
+    "token_total_is_exact": true,
+    "roles": {
+      "root": {
+        "invocations": 3,
+        "total_tokens": 64312987,
+        "input_tokens": 64213866,
+        "cached_input_tokens": 63453184,
+        "output_tokens": 99121,
+        "reasoning_output_tokens": 25097
+      },
+      "worker": {
+        "invocations": 15,
+        "total_tokens": 43375182,
+        "input_tokens": 43042281,
+        "cached_input_tokens": 41220608,
+        "output_tokens": 332901,
+        "reasoning_output_tokens": 147180
+      }
+    },
+    "total": 107688169,
+    "resumes": 2,
+    "paused_wall_seconds": 476.847
+  }
+]

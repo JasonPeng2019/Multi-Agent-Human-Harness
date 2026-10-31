@@ -1,0 +1,35 @@
+{
+  "status": "GRADED",
+  "evaluation_id": "oracle-v2",
+  "started_at_utc": "2026-10-15T11:03:57.087387+00:00",
+  "image_id": "sha256:cfe037596ca5fd52d050f98a75ba5b9b74fa45d909ea55002c57bab7157659fb",
+  "original_image_id": "sha256:3a43d4f3658c4a21115c518937b692692e9e721d3b6e4a3205972917b8bc2e8a",
+  "repository_pin": "f34867643bf07aec5208a861e667e01df0942099",
+  "verifier_lf_sha256": "d1674c434ab1f5f277ad39c548115bd12de83503affd1bbb9b3b46b1e6b6fd3e",
+  "evaluation_attempts": 1,
+  "network": "none",
+  "model_launches": 0,
+  "feedback_to_live_roots": false,
+  "evaluation_target": "bundled_oracle",
+  "container": "62b72448b2c722f0b5cf9b99703403fd3bcb5ddeadf03a871e9a3690b192b4e2",
+  "asset_manifest_verified": true,
+  "oracle_sha256": {
+    "solve.sh": "d15d26dee55b0058f3556841e2337fade956d7a37d06e23e2598b7389114c5e6",
+    "zstd_decompress.c": "78666a61ec2a267fcaad427e1584b4d58674748a27558e907afa8dd43b0dd8d2"
+  },
+  "build_exit_code": 0,
+  "verifier_exit_code": 0,
+  "metrics": {
+    "public_passed": 6,
+    "public_failed": 0,
+    "public_total": 6,
+    "hidden_passed": 37,
+    "hidden_failed": 0,
+    "hidden_total": 37,
+    "total_passed": 43,
+    "total_tests": 43,
+    "partial_score": 1.0
+  },
+  "container_removed": true,
+  "ended_at_utc": "2026-10-15T11:04:29.585263+00:00"
+}

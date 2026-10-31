@@ -1,0 +1,57 @@
+{
+  "at_utc": "2026-10-15T16:41:34.190789+00:00",
+  "run_id": "zstd-w1-fixed-two-20261015-w1-r02",
+  "segment": 3,
+  "decision": "genuine_blocker",
+  "reason": "The latest integrated repair was independently revalidated, followed by a fresh final semantic reviewer and deterministic validator at the same revision. Review substantiated no remaining source-owned material gap; final deterministic FAIL is retained for two reproduced fixed caller/API limitations. Those immutable inputs cannot be changed within this run. Runtime is CLOSED and all fourteen lanes are retired.",
+  "evidence": [
+    "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\audits\\finish-0003\\AUDIT_EVIDENCE.json",
+    "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\audits\\finish-0003\\CHECKPOINT.json",
+    "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\audits\\finish-0003\\worker-evidence.zip",
+    "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\src\\harness.c",
+    "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace\\src\\zstd_decompress.h"
+  ],
+  "candidate_workspace": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\workspace",
+  "candidate_revision": "1fd1f7ae87e5a728a6d77e2954a9fd98a5372034",
+  "original_deadline_utc": "2026-10-15T17:25:55.409872+00:00",
+  "plan": "## Minimal working product\n\n**Requirements**\n\n- Build the existing C99 executable at `/app/src/zstd_decompress` without changing `src/Makefile` or using any Zstandard implementation other than the decoder code in the module.\n- Decode valid RFC 8878 data byte-for-byte: all frame-header shapes, skippable and concatenated frames, raw/RLE/compressed blocks, content checksums, all literal encodings, FSE modes, sequence and repeat-offset semantics, overlapping matches, and trained dictionaries.\n- Fail nonzero with a useful diagnostic for malformed data, a failed checksum, or an unavailable/mismatched required dictionary.\n\n**Expectations**\n\n- `make -C /app/src` builds the fixed target.\n- `/app/src/zstd_decompress input.zst output [dictionary]` writes output byte-identical to `zstd -d` for the supported RFC feature set, including trained-dictionary and multi-frame inputs.\n- The visible sanity suite and focused deterministic checks of valid and invalid cases pass without modifying fixed inputs.\n\n## Tasks\n\n1. Implement the RFC 8878 decoder in the fixed decoder module.\n   - Module file: `src/zstd_decompress.c`\n   - Deliverable: the complete C99 decoder implementation compatible with the existing `harness.c`, header, and Makefile.\n\n## Fixed-input objections recorded 2026-10-15\n\n- The fixed `harness.c` maps both a decoder error and a valid empty frame to a\n  zero `ZSTD_decompress()` result, writes that many bytes, and exits success.\n  The immutable public decoder interface has no error/status channel, so the\n  requested nonzero malformed-input CLI status cannot be distinguished from a\n  valid empty output without changing those fixed inputs.\n- For frames without Frame_Content_Size, the fixed harness allocates only\n  `128 * compressed_input_size` bytes. Valid high-expansion RFC streams can\n  exceed that caller-owned buffer; the decoder must refuse to overrun it and\n  cannot reallocate it through the immutable interface. Byte-identical output\n  for such inputs requires a fixed-harness allocation/API change.\n\nThese are not dismissed defects. They remain explicit validation gaps under\nthe original fixed-input rule; the source-owned decoder defects have been\nrepaired and require independent revalidation.\n",
+  "workflow": "## Workflow topology\n\n**ROOT**\n- Receives all reports and decides whether each criticism or objection is valid\n- The only agent that can block progress\n\n**Module: `src/zstd_decompress.c`**\n- Implementer: builds the complete RFC 8878 decoder implementation compatible with the fixed build interface\n- Deterministic test validator: tests the decoder module against the plan and reports to ROOT\n\n**All modules**\n- Final test validator: tests all modules together against the expectations and reports to ROOT\n- Semantic reviewer: reviews all modules for issues and reports to ROOT\n\n**Flow**\n1. Each module: implementer \u2192 deterministic test validator \u2192 ROOT\n2. ROOT judges each report. Valid: ROOT blocks progress and sends the issue to the module's implementer, and the fix goes back through step 1. Not valid: dismissed.\n3. Once ROOT has accepted every module: final test validator and semantic reviewer (launched in parallel) \u2192 ROOT\n4. ROOT judges each report. Valid: ROOT blocks progress and sends the issue to the affected module's implementer, and the fix goes back through step 1. None valid: the workflow is done.\n",
+  "final_pair_present": true,
+  "hidden_evaluations": 0,
+  "operator_task_code_changes": false,
+  "final_findings": {
+    "final-reviewer-3": {
+      "schema": "result/v1",
+      "lane_id": "final-reviewer-3",
+      "run_id": "bbac880755d54d18b5e40a56acf398cf",
+      "outcome": "PASS",
+      "summary": "Fresh independent source review of 1fd1f7ae87e5a728a6d77e2954a9fd98a5372034 substantiated no material decoder-owned gap; the two recorded harness/API limitations were separately confirmed, with local execution unavailable because this worktree lacks a C toolchain.",
+      "evidence": [
+        "FINAL_SEMANTIC_REVIEW.md"
+      ],
+      "completed_at": "2026-10-15T16:27:25.412377Z",
+      "content_hash": "70cf053d2f55fd9b942c426ff53596203209ff5c943c1cd6ef66d93e2513737c"
+    },
+    "final-validator-3": {
+      "schema": "result/v1",
+      "lane_id": "final-validator-3",
+      "run_id": "bde04911e57c4f65a20f00140979de75",
+      "outcome": "FAIL",
+      "summary": "Revision 1fd1f7ae87e5a728a6d77e2954a9fd98a5372034: public build and six-fixture suite PASS; focused checks PASS for FCS widths 0/1/2/4/8, raw/RLE, 1024-byte window limit, skippable plus concatenated frames, strict offset/dictionary-window helper boundaries, and 31-bit reverse reads. Compressed public fixtures (with checksums) PASS. Confirmed fixed harness/API gaps: an unavailable required dictionary produces empty output with CLI exit 0, and a valid no-FCS 128KiB RLE frame is constrained by the harness 128x input allocation and produces empty output with CLI exit 0. Thus nonzero malformed/missing-dictionary status and byte-identical valid high-expansion no-FCS output remain impossible without immutable harness/API change. No task inputs changed. Additional coverage gap: no supplied trained-dictionary or independently generated custom-HUF/FSE/treeless corpus was available; public zstd CLI is absent.",
+      "evidence": [
+        ".agent-workspace/public-checks/ef2c68a7d6a64bc2a281d2695dd69bdb/result.json",
+        ".agent-workspace/public-checks/7d98e863838240eb9d552c0d2ef7fa3d/result.json",
+        ".agent-workspace/public-checks/8b11945e864640b798260a43f407b607/result.json",
+        ".agent-workspace/public-checks/96e7b44747954b6d861228d62298e3ac/result.json"
+      ],
+      "completed_at": "2026-10-15T16:32:11.019471Z",
+      "content_hash": "ff30d711205426899e41f7724fa71751e7e28bacc96dd99362333110a7c40ccb"
+    }
+  },
+  "limits": [
+    "Overall end-to-end validation remains FAIL; the semantic PASS is source-scoped.",
+    "The fixed header requires unknown header size to return size_t -1 and errors to return zero. The fixed caller uses a 128x fallback allocation and exits zero after a zero-byte result.",
+    "Independent deterministic probes reproduce the two fixed-interface limits; source review assesses them separately from decoder-owned changes.",
+    "Trained-dictionary and exhaustive entropy behavior are not fully covered by the visible corpus. No hidden score is claimed."
+  ]
+}

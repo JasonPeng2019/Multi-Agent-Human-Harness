@@ -1,0 +1,105 @@
+{
+  "schema": "operator-native-result-deltas-repair/v1",
+  "checked_at_utc": "2026-10-31T10:28:08.401585+00:00",
+  "tests_passed": 121,
+  "source": "Installed Claude Code 2.1.312 native model_usage_since_last_result field; per-result whole-tree deltas, sum across results and physical CLI processes",
+  "files": [
+    {
+      "harness": "primary",
+      "file": "claude_usage.py",
+      "before_sha256": "f445a7749de9265f4120ff2b291fe2fdb37ed788a908de5333e1db5f2231cb99",
+      "after_sha256": "e75dcd9f5acdba32ed25e2a9810c9a311a58647838fd84177462746af55cd972"
+    },
+    {
+      "harness": "primary",
+      "file": "token_ledger.py",
+      "before_sha256": "e4a9517f8397c8310637ba82ca03a71dca228b9eded4779d8963cae893837b7b",
+      "after_sha256": "d0acd2adb6abc17e44f0bd55fa11db2e214559d4c6068c551143ff25ffff156c"
+    },
+    {
+      "harness": "h2",
+      "file": "claude_usage.py",
+      "before_sha256": "f445a7749de9265f4120ff2b291fe2fdb37ed788a908de5333e1db5f2231cb99",
+      "after_sha256": "e75dcd9f5acdba32ed25e2a9810c9a311a58647838fd84177462746af55cd972"
+    },
+    {
+      "harness": "h2",
+      "file": "token_ledger.py",
+      "before_sha256": "e4a9517f8397c8310637ba82ca03a71dca228b9eded4779d8963cae893837b7b",
+      "after_sha256": "d0acd2adb6abc17e44f0bd55fa11db2e214559d4c6068c551143ff25ffff156c"
+    },
+    {
+      "harness": "hx",
+      "file": "claude_usage.py",
+      "before_sha256": "f445a7749de9265f4120ff2b291fe2fdb37ed788a908de5333e1db5f2231cb99",
+      "after_sha256": "e75dcd9f5acdba32ed25e2a9810c9a311a58647838fd84177462746af55cd972"
+    },
+    {
+      "harness": "hx",
+      "file": "token_ledger.py",
+      "before_sha256": "e4a9517f8397c8310637ba82ca03a71dca228b9eded4779d8963cae893837b7b",
+      "after_sha256": "d0acd2adb6abc17e44f0bd55fa11db2e214559d4c6068c551143ff25ffff156c"
+    }
+  ],
+  "actual_installed_snapshots": [
+    {
+      "trial": "b0",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 383380,
+      "exact": false
+    },
+    {
+      "trial": "b1",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 425951,
+      "exact": false
+    },
+    {
+      "trial": "b2",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 461680,
+      "exact": false
+    },
+    {
+      "trial": "e1",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 1302998,
+      "exact": false
+    }
+  ],
+  "notification_delta_fix": {
+    "installed_at_utc": "2026-10-31T10:33:22.768119+00:00",
+    "sha256": "f192f05f86a9be2c92175a7668dafb371069d8fbe50dadb469e313141e67930e",
+    "reason": "Zero-turn notifications with nonempty native per-result usage must count background agent work"
+  },
+  "final_installed_actual_snapshots": [
+    {
+      "trial": "b0",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 383380
+    },
+    {
+      "trial": "b1",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 425951
+    },
+    {
+      "trial": "b2",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 461680
+    },
+    {
+      "trial": "e1",
+      "errors": [],
+      "inflight": 0,
+      "known_output": 1302998
+    }
+  ]
+}

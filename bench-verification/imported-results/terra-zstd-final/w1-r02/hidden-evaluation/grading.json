@@ -1,0 +1,32 @@
+{
+  "schema": "benchmark-grade/v1",
+  "record_kind": "imported_historical_grade",
+  "status": "GRADED",
+  "run_id": "zstd-w1-fixed-two-20261015-w1-r02",
+  "task": "zstd-decoder",
+  "partial_score": 1.0,
+  "binary_reward": 1,
+  "metrics": {
+    "public_passed": 6,
+    "public_failed": 0,
+    "public_total": 6,
+    "hidden_passed": 37,
+    "hidden_failed": 0,
+    "hidden_total": 37,
+    "total_passed": 43,
+    "total_tests": 43,
+    "partial_score": 1.0
+  },
+  "candidate_revision": "1fd1f7ae87e5a728a6d77e2954a9fd98a5372034",
+  "cleanup_proven": true,
+  "cleanup_evidence": "Original saved grader container_removed=true; no new evaluation was run.",
+  "imported_at_utc": "2026-10-31T13:30:59.120157+00:00",
+  "source_grading_sha256": "39e8d3747634087a52a843289c6090cf16f9f3fbc877f403d8aa5ca6d7f0aab9",
+  "source_grading_file": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-w1-fixed-two-20261015\\w1-r02\\operator\\checkpoint-grades\\final\\grading.json",
+  "original_grading_record": "../../evidence/w1-r02/grading.original.json",
+  "operator_assisted": true,
+  "workflow_outcome": "genuine_blocker",
+  "model": "gpt-5.6-terra",
+  "effort": "high",
+  "no_new_evaluation": true
+}

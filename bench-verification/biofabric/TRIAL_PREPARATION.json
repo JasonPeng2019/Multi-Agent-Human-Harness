@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "model_launches": 0,
+  "runs": [
+    "biofabric-sonnet5-low-b1-20261031T075228Z",
+    "biofabric-sonnet5-low-b2-20261031T075228Z",
+    "biofabric-sonnet5-low-b0-20261031T075228Z"
+  ],
+  "collector_accounting_tests_passed": 14,
+  "prepared_at_utc": "2026-10-31T07:56:12.811097+00:00"
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Commit"
+  short_description: "Create a deliberate local commit when explicitly requested"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,208 @@
+{
+  "Id": "9262e651becf7f5e7d53f78da0d00a723980bc265836c9866a1fc994f309296b",
+  "Created": "2026-10-31T12:07:39.4022826Z",
+  "Path": "bash",
+  "Args": [
+    "-lc",
+    "sleep 3600"
+  ],
+  "State": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 26419,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-31T12:07:41.8738606Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:5f5f3e77ca04eb8a2cc11f79d882d4ba20348baec765e97bacf74ea31c0dd721",
+  "ResolvConfPath": "/var/lib/docker/containers/9262e651becf7f5e7d53f78da0d00a723980bc265836c9866a1fc994f309296b/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/9262e651becf7f5e7d53f78da0d00a723980bc265836c9866a1fc994f309296b/hostname",
+  "HostsPath": "/var/lib/docker/containers/9262e651becf7f5e7d53f78da0d00a723980bc265836c9866a1fc994f309296b/hosts",
+  "LogPath": "/var/lib/docker/containers/9262e651becf7f5e7d53f78da0d00a723980bc265836c9866a1fc994f309296b/9262e651becf7f5e7d53f78da0d00a723980bc265836c9866a1fc994f309296b-json.log",
+  "Name": "/excel-public-ac8a697d3a6d4dfe",
+  "RestartCount": 0,
+  "Driver": "overlayfs",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": null,
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "NetworkMode": "bridge",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": null,
+    "CgroupnsMode": "private",
+    "Dns": null,
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": false,
+    "SecurityOpt": null,
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 17179869184,
+    "NanoCpus": 4000000000,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 34359738368,
+    "MemorySwappiness": null,
+    "OomKillDisable": null,
+    "PidsLimit": 512,
+    "Ulimits": null,
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "MaskedPaths": [
+      "/proc/acpi",
+      "/proc/asound",
+      "/proc/interrupts",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/sys/devices/virtual/powercap",
+      "/sys/firmware"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "Storage": {
+    "RootFS": {
+      "Snapshot": {
+        "Name": "overlayfs"
+      }
+    }
+  },
+  "Mounts": [],
+  "Config": {
+    "Hostname": "9262e651becf",
+    "Domainname": "",
+    "User": "",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "ExposedPorts": {
+      "8000/tcp": {}
+    },
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "CARGO_NET_OFFLINE=true",
+      "DEBIAN_FRONTEND=noninteractive",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "PYTHONUNBUFFERED=1",
+      "PIP_DISABLE_PIP_VERSION_CHECK=1",
+      "PIP_NO_CACHE_DIR=1",
+      "PLAYWRIGHT_BROWSERS_PATH=/ms-playwright",
+      "VIRTUAL_ENV=/opt/venv"
+    ],
+    "Cmd": [
+      "bash",
+      "-lc",
+      "sleep 3600"
+    ],
+    "Image": "swe-marathon-excel-clone:public-blob-f34867643bf0",
+    "Volumes": null,
+    "WorkingDir": "/app",
+    "Entrypoint": null,
+    "Labels": {
+      "org.opencontainers.image.version": "24.04"
+    }
+  },
+  "NetworkSettings": {
+    "SandboxID": "e4f3d21b92bad6dcb0393066aea9370fecfae5c4f7bc3f1acc47a91473e16356",
+    "SandboxKey": "/var/run/docker/netns/e4f3d21b92ba",
+    "Ports": {
+      "8000/tcp": null
+    },
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "DriverOpts": null,
+        "GwPriority": 0,
+        "NetworkID": "5d4a2015ec59892a9a18044019723ef50dddfab304ec2515fd97eba8e23f64e4",
+        "EndpointID": "194acd773a9bb9778014c3c1c9219e64ee2999562046b10979efe6225c9fc27d",
+        "Gateway": "172.17.0.1",
+        "IPAddress": "172.17.0.4",
+        "MacAddress": "1a:1b:e6:d1:9f:99",
+        "IPPrefixLen": 16,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DNSNames": null
+      }
+    }
+  },
+  "ImageManifestDescriptor": {
+    "mediaType": "application/vnd.oci.image.manifest.v1+json",
+    "digest": "sha256:fb1ce07f4cd43d20fd0c81d90bf64292af7d577097b4a695f45b72463bc27c7c",
+    "size": 7723,
+    "platform": {
+      "architecture": "amd64",
+      "os": "linux"
+    }
+  }
+}

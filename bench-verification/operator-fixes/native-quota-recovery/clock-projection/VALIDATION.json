@@ -1,0 +1,29 @@
+{
+  "status": "PASS_FUTURE_RESET_SIMULATION_ONLY",
+  "actual_current_clock_extended": false,
+  "actual_collector_receipts_published": false,
+  "live_providers_launched": false,
+  "tested_with_real_immutable_stop_evidence": true,
+  "trials": [
+    {
+      "trial": "b0",
+      "expected_effective_deadline_utc": "2026-10-31T12:36:30.591118+00:00",
+      "validated_paused_seconds": 2989.0
+    },
+    {
+      "trial": "b1",
+      "expected_effective_deadline_utc": "2026-10-31T12:33:42.866011+00:00",
+      "validated_paused_seconds": 2878.0
+    },
+    {
+      "trial": "b2",
+      "expected_effective_deadline_utc": "2026-10-31T12:36:05.170101+00:00",
+      "validated_paused_seconds": 3020.0
+    },
+    {
+      "trial": "e1",
+      "expected_effective_deadline_utc": "2026-10-31T13:12:31.939161+00:00",
+      "validated_paused_seconds": 3034.0
+    }
+  ]
+}

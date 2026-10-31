@@ -1,0 +1,7 @@
+{
+  "status": "FAILED",
+  "exit_code": 139,
+  "stage": "Ubuntu apt download/install",
+  "model_launches": 0,
+  "fix": "Separate acquisition layer, serialize HTTP acquisition, then install cached packages; retain same official package list and remaining Dockerfile."
+}

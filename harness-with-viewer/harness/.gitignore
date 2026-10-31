@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+local-config/
+runtime/
+multi-agent-logs/
+harness_watcher/
+test_results/
+.agent-workspace/
+.harness-runtime/
+
+# The shipped super-cache workspace base is a committed product tree.
+!super-cache/workspace/.agent-workspace/
+

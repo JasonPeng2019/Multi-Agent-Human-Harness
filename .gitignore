@@ -1,0 +1,44 @@
+# Local environments, credentials, caches, and disposable runtime state.
+**/.venv/
+**/.secrets/
+**/.env
+**/.env.local
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.ruff_cache/
+**/node_modules/
+**/target/
+**/.harness-runtime/
+**/.agent-workspace/
+**/archive/
+*.log
+
+# Large machine exports and downloaded release packages.
+*.docker.tar
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.dmg
+*.iso
+*.vhd
+*.vhdx
+
+# Preserve historical runs and research locally, outside source history.
+/bench-verification/root_runs/
+/bench-verification/operator-research/
+/bench-verification/excel/operator-only/
+
+# Copied reference distributions and generated BioFabric fixture output.
+# Harness source, skills, tests, graders, and setup scripts remain tracked.
+/bench-verification/biofabric/template/reference/
+/bench-verification/biofabric/template/tests/parity/goldens/
+/bench-verification/biofabric/template/tests/parity/networks/bif/
+/bench-verification/benchmarks/swe-marathon/tasks/biofabric-rust-rewrite/environment/starter/tests/parity/networks/bif/
+
+# Multi-megabyte benchmark datasets; keep their generators and test code.
+/bench-verification/benchmarks/swe-marathon/tasks/rust-java-lsp/environment/golden.jsonl
+/bench-verification/benchmarks/swe-marathon/tasks/ruby-rust-port/tests/fixtures/audit_log_sample.jsonl
+/bench-verification/benchmarks/swe-marathon/tasks/ruby-rust-port/tests/fixtures/audit_log_archive.jsonl

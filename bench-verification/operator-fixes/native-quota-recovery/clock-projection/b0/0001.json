@@ -1,0 +1,12 @@
+{
+  "run_id": "biofabric-sonnet5-low-b0-20261031T075228Z",
+  "root_session_id": "6c3b6f8f-7ca4-46e4-a041-7683683a47bb",
+  "stop_audit": {
+    "path": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\root_runs\\b0\\QUOTA_STOP_0001.json",
+    "sha256": "780f7525fd47d7cea1158b003a55a96985103b7ba3971ee733167a18ba3ac24a"
+  },
+  "paused_at_utc": "2026-10-31T09:50:11+00:00",
+  "original_deadline_utc": "2026-10-31T11:46:41.591118+00:00",
+  "schema": "operator-quota-pause/v1",
+  "clock_resumed_at_utc": "2026-10-31T10:40:00+00:00"
+}

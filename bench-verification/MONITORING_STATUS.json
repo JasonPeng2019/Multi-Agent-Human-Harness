@@ -1,0 +1,221 @@
+{
+  "checked_at_utc": "2026-10-31T09:56:47.764167+00:00",
+  "status": "USAGE_PAUSED_UNTIL_NATIVE_RESET",
+  "trials": [
+    {
+      "trial": "b0",
+      "events": 2269,
+      "collector_sealed": true,
+      "result_records": 10,
+      "last_result": "Native 5-hour quota rejection; unfinished, eligible for same-session recovery",
+      "latest_root_quota": {
+        "status": "allowed_warning",
+        "resetsAt": 1793443200,
+        "rateLimitType": "five_hour",
+        "utilization": 0.91,
+        "overageStatus": "rejected",
+        "overageDisabledReason": "org_level_disabled",
+        "isUsingOverage": false,
+        "surpassedThreshold": 0.9,
+        "unifiedWindows": {
+          "five_hour": {
+            "utilization": 0.91,
+            "resetsAt": 1793443200,
+            "status": "allowed_warning",
+            "surpassedThreshold": 0.9
+          },
+          "seven_day": {
+            "utilization": 0.07,
+            "resetsAt": 1793779200,
+            "status": "allowed"
+          }
+        },
+        "overageEnabled": false
+      },
+      "lanes": [],
+      "quota_rejected_lanes": [],
+      "quota_stop_audit": "bench-verification\\root_runs\\b0\\QUOTA_STOP_0001.json",
+      "native_quota_pause_started_utc": "2026-10-31T09:50:11+00:00",
+      "status": "USAGE_PAUSED"
+    },
+    {
+      "trial": "b1",
+      "events": 783,
+      "collector_sealed": true,
+      "result_records": 0,
+      "last_result": "Native 5-hour quota rejection; unfinished, eligible for same-session recovery",
+      "latest_root_quota": {
+        "status": "allowed_warning",
+        "resetsAt": 1793443200,
+        "rateLimitType": "five_hour",
+        "utilization": 0.91,
+        "overageStatus": "rejected",
+        "overageDisabledReason": "org_level_disabled",
+        "isUsingOverage": false,
+        "surpassedThreshold": 0.9,
+        "unifiedWindows": {
+          "five_hour": {
+            "utilization": 0.91,
+            "resetsAt": 1793443200,
+            "status": "allowed_warning",
+            "surpassedThreshold": 0.9
+          },
+          "seven_day": {
+            "utilization": 0.08,
+            "resetsAt": 1793779200,
+            "status": "allowed"
+          }
+        },
+        "overageEnabled": false
+      },
+      "lanes": [
+        [
+          "lane-analysis",
+          "retired"
+        ],
+        [
+          "lane-io",
+          "retired"
+        ],
+        [
+          "lane-io-repair",
+          "running"
+        ],
+        [
+          "lane-layout",
+          "running"
+        ],
+        [
+          "lane-model",
+          "retired"
+        ],
+        [
+          "lane-model-repair",
+          "retired"
+        ],
+        [
+          "lane-model-validate",
+          "retired"
+        ]
+      ],
+      "quota_rejected_lanes": [],
+      "quota_stop_audit": "bench-verification\\root_runs\\b1\\QUOTA_STOP_0001.json",
+      "native_quota_pause_started_utc": "2026-10-31T09:52:02+00:00",
+      "status": "USAGE_PAUSED"
+    },
+    {
+      "trial": "b2",
+      "events": 759,
+      "collector_sealed": true,
+      "result_records": 0,
+      "last_result": "Native 5-hour quota rejection; unfinished, eligible for same-session recovery",
+      "latest_root_quota": {
+        "status": "allowed",
+        "resetsAt": 1793443200,
+        "rateLimitType": "five_hour",
+        "overageStatus": "rejected",
+        "overageDisabledReason": "org_level_disabled",
+        "isUsingOverage": false,
+        "unifiedWindows": {
+          "five_hour": {
+            "utilization": 0.85,
+            "resetsAt": 1793443200,
+            "status": "allowed"
+          },
+          "seven_day": {
+            "utilization": 0.07,
+            "resetsAt": 1793779200,
+            "status": "allowed"
+          }
+        }
+      },
+      "lanes": [
+        [
+          "lane-01",
+          "retired"
+        ],
+        [
+          "lane-02",
+          "retired"
+        ],
+        [
+          "lane-03",
+          "retired"
+        ],
+        [
+          "lane-04",
+          "retired"
+        ],
+        [
+          "lane-05",
+          "retired"
+        ],
+        [
+          "lane-06",
+          "retired"
+        ],
+        [
+          "lane-07",
+          "running"
+        ],
+        [
+          "lane-08",
+          "review_pending"
+        ],
+        [
+          "lane-09",
+          "running"
+        ]
+      ],
+      "quota_rejected_lanes": [],
+      "quota_stop_audit": "bench-verification\\root_runs\\b2\\QUOTA_STOP_0001.json",
+      "native_quota_pause_started_utc": "2026-10-31T09:49:40+00:00",
+      "status": "USAGE_PAUSED"
+    },
+    {
+      "trial": "e1",
+      "events": 2347,
+      "collector_sealed": true,
+      "result_records": 0,
+      "last_result": "Native 5-hour quota rejection; unfinished, eligible for same-session recovery",
+      "latest_root_quota": {
+        "status": "allowed",
+        "resetsAt": 1793443200,
+        "rateLimitType": "five_hour",
+        "overageStatus": "rejected",
+        "overageDisabledReason": "org_level_disabled",
+        "isUsingOverage": false,
+        "unifiedWindows": {
+          "five_hour": {
+            "utilization": 0.88,
+            "resetsAt": 1793443200,
+            "status": "allowed"
+          },
+          "seven_day": {
+            "utilization": 0.07,
+            "resetsAt": 1793779200,
+            "status": "allowed"
+          }
+        }
+      },
+      "lanes": [
+        [
+          "00-foundation",
+          "review_pending"
+        ]
+      ],
+      "quota_rejected_lanes": [],
+      "quota_stop_audit": "bench-verification\\root_runs\\e1\\QUOTA_STOP_0001.json",
+      "native_quota_pause_started_utc": "2026-10-31T09:49:26+00:00",
+      "status": "USAGE_PAUSED"
+    }
+  ],
+  "biofabric_calibration": "PASS 450/450",
+  "excel_calibration": "NOT_CALIBRATED: untouched oracle perf gate failures and pending visual API key path",
+  "native_b0_yields_are_not_task_completion": true,
+  "score_display_script": "tools/score_run.py",
+  "native_reset_utc": "2026-10-31T10:40:00+00:00",
+  "same_sessions_and_epochs_preserved": true,
+  "all_model_provider_processes_stopped": true,
+  "oracle_perf_quiet_recheck": "FAILED_UNCHANGED_THRESHOLDS_CLEANUP_PROVEN"
+}

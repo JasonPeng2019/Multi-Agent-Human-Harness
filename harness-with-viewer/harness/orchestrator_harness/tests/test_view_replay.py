@@ -1,0 +1,507 @@
+import copy
+from contextlib import closing
+import io
+import json
+import sqlite3
+import tempfile
+import unittest
+from pathlib import Path
+from unittest import mock
+
+from orchestrator_harness import view_replay, view_state, view_artifacts, view_events, view_term, view_render, operator_launch
+from orchestrator_harness.tests.test_view import ViewFixture, _write
+
+
+class ReplayTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.fixture = ViewFixture(Path(self.tmp.name))
+        self.rt = self.fixture.rt
+        self.state = view_state.collect_state(self.rt)
+        # Isolate one worker with real artifacts and record an initial pending result.
+        self.state['lanes'] = self.state['lanes'][:1]
+        self.state['root']['workers'] = self.state['lanes']
+        self.lane = self.state['lanes'][0]
+        self.aw = Path(self.lane['worktree_path']) / '.agent-workspace'
+        (self.aw / 'worker-prompt.md').write_text('Original task prompt')
+        self.transcript = self.aw / 'provider-transcript.jsonl'
+        self.lane['artifact_paths']['transcript_path'] = str(self.transcript)
+        self.write_output('first output')
+        self.now = [0.0]
+
+    def write_output(self, text):
+        self.transcript.write_text(json.dumps({'type': 'item.completed', 'item': {'id': 'one', 'type': 'agent_message', 'text': text}}) + '\n')
+
+    def record(self, at):
+        if self.state.get('status') == 'closed':
+            path = self.rt / 'epochs' / self.state['epoch_id'] / 'epoch-state.json'
+            native = json.loads(path.read_text())
+            native['lifecycle'] = 'closed'
+            _write(path, native)
+            (self.rt / 'CURRENT_EPOCH.json').unlink(missing_ok=True)
+        with mock.patch.object(view_state, 'collect_state', return_value=self.state), mock.patch.object(view_replay.time, 'time', return_value=at):
+            view_replay.record_once(self.rt)
+
+    def playback(self, **kwargs):
+        return view_replay.Playback(self.rt, clock=lambda: self.now[0], **kwargs)
+
+    def two_frames(self):
+        self.record(100)
+        self.write_output('first output\nsecond output')
+        self.state['status'] = 'closed'
+        self.record(115)
+
+    def test_speed_pause_seek_restart_and_speed_changes(self):
+        self.two_frames()
+        playback = self.playback()
+        self.now[0] = 4
+        self.assertEqual(6, playback.state()['replay']['position'])
+        playback.control(' ')
+        self.now[0] = 8
+        self.assertEqual(6, playback.state()['replay']['position'])
+        playback.control('+')
+        self.assertEqual(1.75, playback.speed)
+        playback.control(']')
+        self.assertEqual(15, playback.position)
+        playback.control('r')
+        self.assertFalse(playback.paused)
+        self.assertEqual(0, playback.position)
+        playback.control('[')
+        self.assertEqual(0, playback.position)
+        for speed in (0, -1, float('nan'), float('inf'), 9):
+            with self.assertRaises(ValueError):
+                self.playback(speed=speed)
+
+    def test_replay_is_frozen_and_cannot_read_future_artifacts(self):
+        self.record(100)
+        self.write_output('future output')
+        (self.aw / 'worker-prompt.md').write_text('Changed task prompt')
+        self.lane['root_review'] = {'verdict': 'PASS', 'approval': 'ACCEPTED', 'reviewer': 'ROOT', 'summary': 'Future review', 'evidence': []}
+        self.state['status'] = 'closed'
+        self.record(115)
+        playback = self.playback()
+        # Reading any current file through artifact helpers would fail this test.
+        with mock.patch.object(view_artifacts, 'read_text', side_effect=AssertionError('live artifact read')), mock.patch.object(Path, 'read_text', side_effect=AssertionError('live mailbox read')):
+            earlier = playback.state()
+            lane = earlier['lanes'][0]
+            self.assertEqual('Original task prompt', view_artifacts.panel_text(lane, 'prompt').split('\n', 1)[1])
+            self.assertEqual('first output', view_artifacts.output_blocks(lane)[0].text)
+            self.assertNotIn('Future review', view_artifacts.panel_text(lane, 'result'))
+            self.assertNotIn('Future review', view_artifacts.panel_text(earlier['root'], 'result'))
+            view_events.mailbox_text(earlier['root'])
+            playback.seek(15)
+            later = playback.state()
+            self.assertIn('Future review', view_artifacts.panel_text(later['root'], 'result'))
+            playback.seek(0)
+            self.assertNotIn('Future review', view_artifacts.panel_text(playback.state()['root'], 'result'))
+
+    def test_recorded_events_retain_original_summary_and_history(self):
+        identity = {key: self.lane[key] for key in ('lane_id', 'run_id')}
+        inbox_path = self.aw / 'QUEUE.json'
+        inbox = dict(identity, schema='lane-inbox/v1', assignments=[dict(identity, event_id='assignment', prompt='Original message', state='PENDING')])
+        _write(inbox_path, inbox)
+        self.record(100)
+        inbox['assignments'][0].update(prompt='Updated message', state='COMPLETE')
+        _write(inbox_path, inbox)
+        self.record(110)
+        playback = self.playback()
+        text = view_events.mailbox_text(playback.state()['lanes'][0])
+        self.assertIn('Original message', text)
+        self.assertNotIn('Updated message', text)
+        playback.seek(10)
+        self.assertIn('Updated message', view_events.mailbox_text(playback.state()['lanes'][0]))
+
+    def test_unchanged_observations_deduplicate_and_monotonic_timestamp(self):
+        self.record(100)
+        self.record(110)
+        self.write_output('changed')
+        self.record(90)
+        playback = self.playback()
+        self.assertEqual(2, len(playback.frames))
+        self.assertEqual(sorted(playback.times), playback.times)
+        self.assertIn('Partial', playback.warning)
+
+    def test_failed_recording_is_reported_and_does_not_break_harness(self):
+        with mock.patch.object(view_replay, 'record_once', side_effect=OSError('disk unavailable')):
+            view_replay.record_safely(self.rt)
+        self.assertIn('disk unavailable', (self.rt / 'replay' / 'recording-errors.log').read_text())
+
+    def test_read_only_replay_and_corrupt_recording_rejected(self):
+        self.two_frames()
+        before = {p: p.read_bytes() for p in self.rt.rglob('*') if p.is_file()}
+        playback = self.playback()
+        playback.seek(15)
+        playback.state()
+        self.assertEqual(before, {p: p.read_bytes() for p in self.rt.rglob('*') if p.is_file()})
+        database = next((self.rt / 'replay').glob('*.sqlite3'))
+        with closing(sqlite3.connect(database)) as db, db:
+            db.execute("UPDATE frames SET digest='invalid' WHERE seq=1")
+        with self.assertRaisesRegex(ValueError, 'integrity'):
+            self.playback()
+
+    def test_approximate_legacy_replay_is_labeled_and_hides_results_until_end(self):
+        state = copy.deepcopy(self.state)
+        state['status'] = 'closed'
+        with mock.patch.object(view_state, 'collect_state', return_value=state):
+            playback = self.playback()
+        earlier = playback.state()
+        self.assertIn('Approximate', earlier['replay']['warning'])
+        self.assertEqual([], view_artifacts.output_blocks(earlier['lanes'][0]))
+        self.assertIn('at the end', view_artifacts.panel_text(earlier['lanes'][0], 'result'))
+        playback.seek(playback.duration)
+        self.assertEqual('closed', playback.state()['status'])
+        with self.assertRaisesRegex(ValueError, 'Unknown replay epoch'):
+            self.playback(epoch='../outside')
+
+    def test_cli_flags_and_replay_error(self):
+        args = operator_launch._build_parser().parse_args(['view', '--replay', '--speed', '1.5', '--epoch', 'test'])
+        self.assertTrue(args.replay)
+        self.assertEqual('test', args.epoch)
+        result = view_term.run_view(runtime_root=str(self.rt), replay=True, replay_epoch='missing', once=True)
+        self.assertFalse(result['ok'])
+        self.assertEqual('VIEW_REPLAY_INVALID', result['code'])
+        result = view_term.run_view(runtime_root=str(self.rt), list_replays=True, once=True)
+        self.assertEqual(1, len(result['recordings']))
+
+    def test_interactive_replay_controls_seek_resets_future_output(self):
+        self.two_frames()
+        playback = self.playback()
+        output = io.StringIO()
+        frames = []
+        original = view_render.render
+        def render(*args, **kwargs):
+            frames.append((copy.deepcopy(args[0]), kwargs.get('artifact_text')))
+            return original(*args, **kwargs)
+        with mock.patch.object(view_term._Keys, 'raw'), mock.patch.object(view_term._Keys, 'read', side_effect=['enter', ']', ']', 'r', ' ', 'q']), mock.patch.object(view_term, '_terminal_size', return_value=(100, 30)), mock.patch.object(view_render, 'render', side_effect=render):
+            view_term.run_interactive(lambda: self.state, playback=playback, out=output, depth=0, ascii_only=True)
+        self.assertIn('REPLAY 1.5x', output.getvalue())
+        self.assertIn('second output', frames[3][1])
+        self.assertNotIn('second output', frames[4][1])
+        self.assertEqual(0, frames[4][0]['replay']['position'])
+
+    def test_selection_stays_on_same_agent_when_new_lane_appears(self):
+        # ROOT was selected while no worker existed; adding a worker must not open it instead.
+        empty = copy.deepcopy(self.state)
+        empty['lanes'] = []
+        empty['root']['workers'] = []
+        states = iter([empty, self.state, self.state, self.state])
+        moment = [0]
+        keys = iter(['enter', 'q'])
+        def read(_):
+            moment[0] += 3
+            return next(keys)
+        output = io.StringIO()
+        with mock.patch.object(view_term._Keys, 'raw'), mock.patch.object(view_term._Keys, 'read', side_effect=read), mock.patch.object(view_term.time, 'monotonic', side_effect=lambda: moment[0]), mock.patch.object(view_term, '_terminal_size', return_value=(120, 30)):
+            view_term.run_interactive(lambda: next(states), out=output, depth=0, ascii_only=True)
+        self.assertIn('visible in the terminal CLI', output.getvalue())
+
+    def test_old_closed_run_is_not_retroactively_marked_recorded(self):
+        (self.rt / 'CURRENT_EPOCH.json').unlink()
+        view_replay.record_once(self.rt)
+        self.assertFalse((self.rt / 'replay').exists())
+
+    def test_root_evidence_is_frozen_and_closed_recording_is_sealed(self):
+        report = self.rt.parent / 'checks.txt'
+        report.write_text('Original checks passed')
+        self.lane['root_review'] = {'verdict': 'PASS', 'approval': 'ACCEPTED', 'reviewer': 'ROOT', 'summary': 'Reviewed', 'evidence': [str(report)], 'workspace': str(self.rt.parent)}
+        self.record(100)
+        self.state['status'] = 'closed'
+        self.record(110)
+        report.write_text('Future unrelated report')
+        self.write_output('Future unrelated output')
+        self.record(500)
+        playback = self.playback()
+        self.assertEqual(10, playback.duration)
+        playback.seek(10)
+        with mock.patch.object(view_artifacts, 'read_text', side_effect=AssertionError('live artifact read')):
+            for lane in [*playback.state()['lanes'], playback.state()['root']]:
+                text = view_artifacts.panel_text(lane, 'result')
+                self.assertIn('Original checks passed', text)
+                self.assertNotIn('Future unrelated report', text)
+
+    def test_idle_observations_extend_partial_recording_duration(self):
+        self.record(100)
+        self.record(200)
+        playback = self.playback()
+        self.assertEqual(1, len(playback.frames))
+        self.assertEqual(100, playback.duration)
+
+    def test_loading_does_not_advance_playback_clock(self):
+        self.two_frames()
+        validate = view_replay.validate_snapshot
+        def slow_validate(*args):
+            self.now[0] += 20
+            return validate(*args)
+        with mock.patch.object(view_replay, 'validate_snapshot', side_effect=slow_validate):
+            playback = self.playback()
+        self.assertEqual(0, playback.state()['replay']['position'])
+
+    def test_malformed_frames_and_nonmonotonic_timestamps_are_rejected(self):
+        import hashlib
+        import zlib
+        self.two_frames()
+        database = next((self.rt / 'replay').glob('*.sqlite3'))
+        with closing(sqlite3.connect(database)) as db:
+            original = db.execute('SELECT payload FROM frames WHERE seq=1').fetchone()[0]
+        good = json.loads(zlib.decompress(original))
+        for mutate in (
+            lambda state: state['lanes'][0].update(_recorded={}),
+            lambda state: state.update(needs_you=1),
+            lambda state: state.update(status=[]),
+            lambda state: state['lanes'][0].update(review_agent=['bad']),
+            lambda state: state['lanes'][0].pop('tone'),
+            lambda state: state['lanes'][0].update(steps=[{}]),
+            lambda state: state['lanes'][0]['_recorded'].update(blocks=[{}]),
+            lambda state: state['root']['_recorded'].update(events=[None, [], []]),
+        ):
+            state = copy.deepcopy(good)
+            mutate(state)
+            raw = json.dumps(state).encode()
+            with closing(sqlite3.connect(database)) as db, db:
+                db.execute('UPDATE frames SET digest=?,payload=? WHERE seq=1', (hashlib.sha256(raw).hexdigest(), zlib.compress(raw)))
+            with self.assertRaisesRegex(ValueError, 'malformed'):
+                self.playback()
+            self.assertEqual('VIEW_REPLAY_INVALID', view_term.run_view(runtime_root=str(self.rt), replay=True, once=True)['code'])
+        raw = zlib.decompress(original)
+        with closing(sqlite3.connect(database)) as db, db:
+            db.execute('UPDATE frames SET digest=?,payload=? WHERE seq=1', (hashlib.sha256(raw).hexdigest(), original))
+            db.execute('UPDATE frames SET at=99 WHERE seq=2')
+        with self.assertRaisesRegex(ValueError, 'timestamps'):
+            self.playback()
+        extra = self.rt / 'epochs' / 'bad' / 'epoch-state.json'
+        _write(extra, ['not an object'])
+        self.assertEqual(1, len(view_replay.recordings(self.rt)))
+
+    def test_replay_page_down_reaches_last_line(self):
+        (self.aw / 'worker-prompt.md').write_text('\n'.join(f'prompt-line-{i}' for i in range(80)))
+        self.two_frames()
+        playback = self.playback()
+        playback.paused = True
+        frames = []
+        render = view_render.render
+        def capture(*args, **kwargs):
+            lines = render(*args, **kwargs)
+            frames.append(lines)
+            return lines
+        with mock.patch.object(view_term._Keys, 'raw'), mock.patch.object(view_term._Keys, 'read', side_effect=['enter', 'left'] + ['pagedown'] * 12 + ['q']), mock.patch.object(view_term, '_terminal_size', return_value=(100, 24)), mock.patch.object(view_render, 'render', side_effect=capture):
+            view_term.run_interactive(lambda: self.state, playback=playback, out=io.StringIO(), depth=0, ascii_only=True)
+        self.assertIn('prompt-line-79', '\n'.join(frames[-1]))
+
+    def test_replay_event_selection_stays_visible_beyond_viewport(self):
+        identity = {key: self.lane[key] for key in ('lane_id', 'run_id')}
+        _write(self.aw / 'QUEUE.json', dict(identity, schema='lane-inbox/v1', assignments=[
+            dict(identity, event_id=f'event-{i}', prompt=f'Event message {i}', state='PENDING') for i in range(20)]))
+        self.two_frames()
+        playback = self.playback()
+        playback.paused = True
+        frames = []
+        render = view_render.render
+        def capture(*args, **kwargs):
+            lines = render(*args, **kwargs)
+            frames.append(lines)
+            return lines
+        with mock.patch.object(view_term._Keys, 'raw'), mock.patch.object(view_term._Keys, 'read', side_effect=['enter', 'right', 'right'] + ['down'] * 12 + ['q']), mock.patch.object(view_term, '_terminal_size', return_value=(100, 24)), mock.patch.object(view_render, 'render', side_effect=capture):
+            view_term.run_interactive(lambda: self.state, playback=playback, out=io.StringIO(), depth=0, ascii_only=True)
+        self.assertIn('> [+]', '\n'.join(frames[-1]))
+
+    def test_monitor_reports_stopped_only_after_recorder_terminates(self):
+        from orchestrator_harness import monitor
+        config = mock.Mock(runtime_root=self.rt, visualizer='off')
+        for blocked in (False, True):
+            order = []
+            stop, thread = mock.Mock(), mock.Mock()
+            stop.set.side_effect = lambda: order.append('stop')
+            thread.join.side_effect = lambda **kwargs: order.append('join')
+            thread.is_alive.return_value = blocked
+            record = {'stop_requested': True}
+            with mock.patch.object(monitor, 'find_harness_root', return_value=Path.cwd()), mock.patch.object(monitor, 'load_config', return_value=config), mock.patch.object(monitor, 'load_resource_manifest'), mock.patch.object(monitor, 'compute_config_identity'), mock.patch.object(monitor, 'run_monitor_once'), mock.patch.object(monitor, 'read_monitor_record', return_value=record), mock.patch.object(view_replay, 'start_recorder', return_value=(stop, thread)), mock.patch.object(view_replay, 'record_safely', side_effect=lambda rt, **kwargs: order.append('snapshot')), mock.patch.object(monitor, 'atomic_write_json', side_effect=lambda *args: order.append('STOPPED')):
+                result = monitor.main()
+            self.assertEqual(['stop', 'join'] if blocked else ['stop', 'join', 'snapshot', 'STOPPED'], order)
+            self.assertEqual(1 if blocked else 0, result)
+
+    def new_epoch(self, rt, epoch='f' * 32, opened='2027-01-01T00:00:00Z'):
+        _write(rt / 'CURRENT_EPOCH.json', {'schema': 'current-epoch/v1', 'epoch_id': epoch})
+        _write(rt / 'epochs' / epoch / 'epoch-state.json', {'schema': 'epoch-state/v1', 'epoch_id': epoch, 'opened_at': opened, 'lane_mode': 'managed', 'lifecycle': 'active'})
+        return epoch
+
+    def test_new_epoch_prunes_only_owned_replays_and_disallows_old_replay(self):
+        self.record(100)
+        old_epoch = self.state['epoch_id']
+        journal = self.rt / 'replay' / f'{old_epoch}.sqlite3'
+        unrelated = self.rt / 'replay' / 'unrelated.sqlite3'
+        unrelated.write_text('user data')
+        original = self.transcript.read_bytes()
+        epoch = self.new_epoch(self.rt)
+        state = copy.deepcopy(self.state)
+        state['epoch_id'] = epoch
+        with mock.patch.object(view_state, 'collect_state', return_value=state):
+            view_replay.record_once(self.rt)
+        self.assertFalse(journal.exists())
+        self.assertEqual('user data', unrelated.read_text())
+        self.assertEqual(original, self.transcript.read_bytes())
+        self.assertEqual([epoch], [item['epoch_id'] for item in view_replay.recordings(self.rt)])
+        with self.assertRaisesRegex(ValueError, 'Unknown replay epoch'):
+            self.playback(epoch=old_epoch)
+
+    def test_cross_workspace_retention_and_stale_recorder(self):
+        registry = Path(self.tmp.name) / 'local-config' / 'latest-replay.json'
+        with mock.patch.object(view_state, 'collect_state', return_value=self.state):
+            view_replay.record_once(self.rt, registry=registry)
+        old = next((self.rt / 'replay').glob('*.sqlite3'))
+        newer = ViewFixture(Path(self.tmp.name) / 'new-workspace')
+        self.new_epoch(newer.rt)
+        new_state = view_state.collect_state(newer.rt)
+        with mock.patch.object(view_state, 'collect_state', return_value=new_state):
+            view_replay.record_once(newer.rt, registry=registry)
+        self.assertFalse(old.exists())
+        view_replay.record_once(self.rt, registry=registry)
+        self.assertFalse(old.exists())
+        self.assertEqual(str(newer.rt.resolve()), view_replay.read_latest(registry)['runtime_root'])
+        self.assertTrue(self.transcript.exists())
+
+    def test_same_workspace_follower_detects_new_epoch_once(self):
+        follower = view_replay.LatestRunFollower(self.rt)
+        self.assertFalse(follower.poll())
+        epoch = self.new_epoch(self.rt)
+        self.assertTrue(follower.poll())
+        self.assertEqual(epoch, follower.identity['epoch_id'])
+        self.assertFalse(follower.poll())
+
+    def test_new_workspace_interrupts_paused_replay_and_clears_old_ui(self):
+        self.two_frames()
+        playback = self.playback()
+        playback.paused = True
+        registry = Path(self.tmp.name) / 'latest-replay.json'
+        follower = view_replay.LatestRunFollower(self.rt, registry)
+        newer = ViewFixture(Path(self.tmp.name) / 'new-workspace')
+        epoch = self.new_epoch(newer.rt)
+        moment = [0.0]
+        keys = iter(['enter', None, 'q'])
+        frames = []
+        render = view_render.render
+        def capture(*args, **kwargs):
+            frames.append((copy.deepcopy(args[0]), kwargs.copy()))
+            return render(*args, **kwargs)
+        def read(_):
+            moment[0] += .3
+            key = next(keys)
+            if key is None:
+                _write(registry, {'schema': 'latest-replay/v1', **view_replay.latest_run(newer.rt)})
+            return key
+        with mock.patch.object(view_term._Keys, 'raw'), mock.patch.object(view_term._Keys, 'read', side_effect=read), mock.patch.object(view_term.time, 'monotonic', side_effect=lambda: moment[0]), mock.patch.object(view_term, '_terminal_size', return_value=(100, 30)), mock.patch.object(view_render, 'render', side_effect=capture):
+            view_term.run_interactive(lambda: view_state.collect_state(follower.rt), playback=playback, latest_run_changed=follower.poll, out=io.StringIO(), depth=0, ascii_only=True)
+        self.assertIn('replay', frames[0][0])
+        self.assertNotIn('replay', frames[-1][0])
+        self.assertEqual(epoch, frames[-1][0]['epoch_id'])
+        self.assertIsNone(frames[-1][1]['panel'])
+        self.assertEqual('', frames[-1][1]['artifact_text'])
+        self.assertEqual([], playback.frames)
+        self.assertEqual({}, playback._cached_state)
+
+    def test_playback_keeps_index_only_and_loads_one_snapshot(self):
+        self.two_frames()
+        playback = self.playback()
+        self.assertTrue(all(isinstance(frame[1], int) and isinstance(frame[2], str) for frame in playback.frames))
+        self.assertFalse(any(isinstance(value, bytes) for frame in playback.frames for value in frame))
+        self.assertEqual({}, playback._cached_state)
+        self.assertIn('first output', view_artifacts.output_blocks(playback.state()['lanes'][0])[0].text)
+        self.assertTrue(playback._cached_state)
+        playback.close()
+        self.assertEqual([], playback.frames)
+        self.assertEqual({}, playback._cached_state)
+
+    def test_deleted_recording_during_playback_does_not_crash_tui(self):
+        self.two_frames()
+        playback = self.playback()
+        playback.paused = True
+        keys = iter(['enter', ']', ']', 'q'])
+        def read(_):
+            key = next(keys)
+            if key == ']':
+                playback.path.unlink(missing_ok=True)
+            return key
+        output = io.StringIO()
+        with mock.patch.object(view_term._Keys, 'raw'), mock.patch.object(view_term._Keys, 'read', side_effect=read), mock.patch.object(view_term, '_terminal_size', return_value=(100, 30)):
+            view_term.run_interactive(lambda: self.state, playback=playback, out=output, depth=0, ascii_only=True)
+        self.assertEqual([], playback.frames)
+        self.assertTrue(output.getvalue().endswith(view_term._LEAVE_SCREEN))
+
+    def test_superseded_replay_launch_goes_directly_live_without_loading_old_data(self):
+        from orchestrator_harness import config, view_launch
+        newer = ViewFixture(Path(self.tmp.name) / 'new-workspace')
+        epoch = self.new_epoch(newer.rt)
+        harness = Path(self.tmp.name) / 'harness'
+        _write(harness / 'local-config' / 'latest-replay.json', {'schema': 'latest-replay/v1', **view_replay.latest_run(newer.rt)})
+        observed = []
+        def interactive(collect, **kwargs):
+            self.assertIsNone(kwargs['playback'])
+            observed.append(collect())
+        with mock.patch.object(config, 'find_harness_root', return_value=harness), mock.patch.object(view_term, '_is_tty', return_value=True), mock.patch.object(view_term, 'run_interactive', side_effect=interactive), mock.patch.object(view_replay, 'Playback', side_effect=AssertionError('must not load old replay')), mock.patch.object(view_launch, 'record_viewer', return_value=None):
+            result = view_term.run_view(runtime_root=str(self.rt), replay=True, out=io.StringIO())
+        self.assertTrue(result['ok'])
+        self.assertEqual(epoch, observed[0]['epoch_id'])
+
+    def test_recorder_rechecks_identity_after_lock_before_pruning(self):
+        self.record(100)
+        old_identity = view_replay.latest_run(self.rt)
+        epoch = self.new_epoch(self.rt)
+        state = copy.deepcopy(self.state)
+        state['epoch_id'] = epoch
+        with mock.patch.object(view_state, 'collect_state', return_value=state):
+            view_replay.record_once(self.rt)
+        new_identity = view_replay.latest_run(self.rt)
+        journal = self.rt / 'replay' / f'{epoch}.sqlite3'
+        self.assertTrue(journal.exists())
+        with mock.patch.object(view_replay, 'latest_run', side_effect=[old_identity, new_identity, new_identity, new_identity]), mock.patch.object(view_state, 'collect_state', return_value=state), mock.patch.object(view_replay, '_remove_recording', wraps=view_replay._remove_recording) as remove:
+            view_replay.record_once(self.rt)
+        self.assertTrue(journal.exists())
+        self.assertFalse(any(call.args[1] == epoch for call in remove.call_args_list))
+
+    def test_opening_and_closing_transitions_cannot_seal_recording_early(self):
+        epoch = self.state['epoch_id']
+        native_path = self.rt / 'epochs' / epoch / 'epoch-state.json'
+        native = json.loads(native_path.read_text())
+        native['lifecycle'] = 'opening'
+        _write(native_path, native)
+        view_replay.record_once(self.rt)
+        self.assertFalse((self.rt / 'replay' / f'{epoch}.sqlite3').exists())
+        native['lifecycle'] = 'active'
+        _write(native_path, native)
+        self.record(100)
+        (self.rt / 'CURRENT_EPOCH.json').unlink()
+        view_replay.record_once(self.rt)  # Viewer says closed; native close has not committed.
+        with closing(sqlite3.connect(self.rt / 'replay' / f'{epoch}.sqlite3')) as db:
+            self.assertNotEqual('true', dict(db.execute('SELECT key,value FROM metadata')).get('complete'))
+        native['lifecycle'] = 'closed'
+        _write(native_path, native)
+        view_replay.record_once(self.rt)
+        with closing(sqlite3.connect(self.rt / 'replay' / f'{epoch}.sqlite3')) as db:
+            self.assertEqual('true', dict(db.execute('SELECT key,value FROM metadata'))['complete'])
+
+    def test_pruning_before_first_playback_read_falls_back_to_live(self):
+        self.two_frames()
+        playback = self.playback()
+        playback.path.unlink()
+        output = io.StringIO()
+        with mock.patch.object(view_term._Keys, 'raw'), mock.patch.object(view_term._Keys, 'read', return_value='q'), mock.patch.object(view_term, '_terminal_size', return_value=(100, 30)):
+            view_term.run_interactive(lambda: self.state, playback=playback, out=output, depth=0, ascii_only=True)
+        self.assertEqual([], playback.frames)
+        self.assertNotIn('REPLAY', output.getvalue())
+
+    def test_rollover_during_playback_construction_switches_live(self):
+        from orchestrator_harness import config, view_launch
+        newer = ViewFixture(Path(self.tmp.name) / 'new-workspace')
+        epoch = self.new_epoch(newer.rt)
+        harness = Path(self.tmp.name) / 'harness'
+        observed = []
+        def race(*args, **kwargs):
+            _write(harness / 'local-config' / 'latest-replay.json', {'schema': 'latest-replay/v1', **view_replay.latest_run(newer.rt)})
+            raise sqlite3.OperationalError('old journal pruned')
+        def interactive(collect, **kwargs):
+            self.assertIsNone(kwargs['playback'])
+            observed.append(collect())
+        with mock.patch.object(config, 'find_harness_root', return_value=harness), mock.patch.object(view_term, '_is_tty', return_value=True), mock.patch.object(view_term, 'run_interactive', side_effect=interactive), mock.patch.object(view_replay, 'Playback', side_effect=race), mock.patch.object(view_launch, 'record_viewer', return_value=None):
+            result = view_term.run_view(runtime_root=str(self.rt), replay=True, out=io.StringIO())
+        self.assertTrue(result['ok'])
+        self.assertEqual(epoch, observed[0]['epoch_id'])

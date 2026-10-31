@@ -1,0 +1,6 @@
+interface:
+  display_name: "Project Topology"
+  short_description: "Build significant modular project execution plans."
+  default_prompt: "Use $project-topology to design the lowest sufficient execution topology, bind its shipped execution blocks to project risks, and validate the plan; use the exact formal Tier 4 package only when that route is selected."
+policy:
+  allow_implicit_invocation: false

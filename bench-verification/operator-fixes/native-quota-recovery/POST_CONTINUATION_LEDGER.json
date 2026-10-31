@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-10-31T10:46:17.311663+00:00",
+  "observations": [
+    {
+      "trial": "b0",
+      "errors": [],
+      "inflight": 1,
+      "known_output": 383380,
+      "root_resumes": 1
+    },
+    {
+      "trial": "b1",
+      "errors": [],
+      "inflight": 2,
+      "known_output": 425951,
+      "root_resumes": 1
+    },
+    {
+      "trial": "b2",
+      "errors": [],
+      "inflight": 2,
+      "known_output": 461680,
+      "root_resumes": 1
+    },
+    {
+      "trial": "e1",
+      "errors": [],
+      "inflight": 1,
+      "known_output": 1302998,
+      "root_resumes": 1
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "reason": "Immutable image fixtures and Java references need not be recopied from a 738 MB Git archive for every check; native 20-second archive limit rejected initial setup.",
+  "fix": "Snapshot only crates and frozen Cargo manifests/lock. Fresh pinned image supplies public fixture/golden/reference bytes; adapter replaces crates and clears build artifacts. Editable runners.rs is retained. No task-code implementation or tests changed.",
+  "model_launches": 0
+}

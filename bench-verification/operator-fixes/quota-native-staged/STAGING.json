@@ -1,0 +1,26 @@
+{
+  "schema": "operator-staged-native-recovery/v1",
+  "status": "INSTALLED_NATIVE_VERIFIED",
+  "epoch_and_clock_integration_tests": 28,
+  "quota_clock_unit_tests": 10,
+  "public_service_repair_unit_tests": 7,
+  "remaining": "Inspect actual quota-stop/error accounting and worker quiescence evidence; integrate only between stopped segments. No live provider or source changed.",
+  "files": {
+    "test_quota_accounting.py": "a430ae6ecca7dd7827f81e41134a3517422c35d59ff0916e0b0dc4e5102fa9c9",
+    "test_quota_integration.py": "ce1bf2bea9595ef19b7439cfbd33c3477294d4a7ced806f4da1edec96bedab52",
+    "orchestrator_harness\\collector_context.py": "069cf4a95ea94a1864b6976da8b82bb6cfd5e5c95d9a8189e0d730119d989cc7",
+    "orchestrator_harness\\epochs.py": "7cc7ac6220c9772c1cf1234392e61d5ff61ce3d60f4b6c70e56b2f80f3d0ac0e",
+    "orchestrator_harness\\quota_clock.py": "75422fab38985f7bda4be7fbc913545136fb803946a6289ee8ab6f60825e5bf0",
+    "scripts\\collect_codex_usage.py": "62db85bfbb13567ea22feb632c701f1eab4effa450741e8aaff768cc945b20c5",
+    "scripts\\prepare_root_launch.py": "8cd2c809a649abfaf090685efc46935e8bea4acd72828081b5571b8448e5381b",
+    "scripts\\public_service_repair.py": "500e61f59e92ed52eb00c480f7b3477d15542efe598a0e60f3e73a422dddd664",
+    "scripts\\quota_accounting.py": "f2f9dec45bf8b9544979f8b8515495b2620413a19f1c894ffcee98787d59e8d3",
+    "scripts\\token_ledger.py": "e4a9517f8397c8310637ba82ca03a71dca228b9eded4779d8963cae893837b7b"
+  },
+  "recorded_at_utc": "2026-10-31T10:15:48.513309+00:00",
+  "excel_actual_prelaunch_readonly_validation": "PASS",
+  "quota_accounting_tests": 11,
+  "existing_native_collector_tests": 67,
+  "existing_native_epoch_tests": 12,
+  "repair_record": "operator-fixes/native-quota-recovery/REPAIR.json"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "benchmark-grade/v1",
+  "status": "GRADED",
+  "run_id": "official-oracle",
+  "task": "biofabric-rust-rewrite",
+  "oracle": true,
+  "feedback_to_live_roots": false,
+  "image_id": "sha256:375a34a80ed17c7d577d7896edd346331bb4bda2e550868806b0e37d6554c9dc",
+  "engine_sha256": "d73b0806977c67c4351e996ce4ac4e810b0aa91cf1285cca8234d78b72378215",
+  "verifier_sha256": "151ad3d8afb777b4ecf70e4bc0febf39db69b95368890ceeeffa01b8e38371b8",
+  "started_at_utc": "2026-10-31T08:05:01.544005+00:00",
+  "cleanup_proven": true,
+  "container": "c34383ab5196f39b5d5b16ae04466777a4f341d58f5e362d2d1f3062494d7868",
+  "partial_score": 1.0,
+  "binary_reward": 1,
+  "metrics": {
+    "cargo_test_exit": 0,
+    "failed": 0,
+    "ignored": 0,
+    "partial_score": 1.0,
+    "passed": 450,
+    "phase": "complete",
+    "reward": 1,
+    "scoring_mode": "binary"
+  },
+  "finished_at_utc": "2026-10-31T08:11:50.358442+00:00"
+}

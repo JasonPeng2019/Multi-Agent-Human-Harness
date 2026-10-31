@@ -1,0 +1,15 @@
+# Runtime environments and private machine inputs
+**/.venv/
+**/.secrets/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.harness-runtime/
+**/.agent-workspace/
+
+# Future run output belongs in preserved local evidence, not ordinary source commits.
+root_runs/*/runtime/results/
+root_runs/*/operator/
+
+# Export is local; distribute separately if using a source repository.
+images/*.docker.tar

@@ -1,0 +1,32 @@
+{
+  "at_utc": "2026-10-31T13:38:49.561483+00:00",
+  "status": "ALL_WORK_COMPLETE_FOR_CURRENT_USER_SCOPE_NO_CONTINUATIONS",
+  "all_models_stopped": true,
+  "all_native_runtimes_closed": true,
+  "b0_hidden_partial": 0.7368421052631579,
+  "b1": "Cancelled by user, unscored. Partial logs preserved; owned grader stopped and container removed.",
+  "b2": "Cancelled grading, unscored; interrupted attempt preserved.",
+  "e1": "Cancelled unfinished, unscored.",
+  "native_collector_archives_complete": true,
+  "active_grader_sessions": {},
+  "score_display_script": "bench-verification/tools/score_run.py",
+  "viewer_update": {
+    "at_utc": "2026-10-31T12:58:09.244535+00:00",
+    "max_replay_speed": 40,
+    "b1_startup_seconds": 0.18801210005767643,
+    "regressions_passed": 35,
+    "proof": "bench-verification/operator-fixes/replay-startup/VERIFICATION.json",
+    "command": "From harness-single-run-version: .\\.venv\\Scripts\\python.exe -m orchestrator_harness.operator_launch view --runtime-root ..\\bench-verification\\root_runs\\b1\\w\\.harness-runtime --epoch 6bcd36887256450ea1c56205da908402 --replay --color --speed 40"
+  },
+  "finalization_prerequisites": "bench-verification/FINALIZATION_PREREQUISITES.json",
+  "terra_zstd_report": {
+    "script": "bench-verification\\tools\\show_terra_zstd_scores.py",
+    "proof": "bench-verification\\operator-fixes\\terra-zstd-report\\VERIFICATION.json",
+    "viewer_epoch": "200d69c16b4a482aa2bd44ce5afe238c",
+    "viewer_approximate": true
+  },
+  "terra_final_import": "bench-verification/imported-results/terra-zstd-final/README.md",
+  "finalization_audit": "bench-verification/FINALIZATION_AUDIT.json",
+  "score_script_mode": "score-only; default imported final batch; official scores read from authenticated log evidence",
+  "token_comparison_added_to_script": false
+}

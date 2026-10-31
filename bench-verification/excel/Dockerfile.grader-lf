@@ -1,0 +1,3 @@
+FROM swe-marathon-excel-clone:canonical-f34867643bf0
+COPY task/environment/dev_tests/ /dev_tests/
+RUN bash -n /dev_tests/run.sh

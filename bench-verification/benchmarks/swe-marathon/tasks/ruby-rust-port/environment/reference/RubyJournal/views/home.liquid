@@ -1,0 +1,13 @@
+{% capture content %}
+<section class="home" aria-label="Home feed">
+  <h1>Latest posts</h1>
+  {% if posts == empty %}
+    <p class="empty-state">Nothing posted yet.</p>
+  {% else %}
+    {% for post in posts %}
+      {% include '_post_card' %}
+    {% endfor %}
+  {% endif %}
+</section>
+{% endcapture %}
+{% include '_layout', title: "RubyJournal — home", content: content %}

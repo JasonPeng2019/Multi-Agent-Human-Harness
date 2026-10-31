@@ -1,0 +1,92 @@
+{
+  "at_utc": "2026-10-31T13:06:06.455164+00:00",
+  "status": "PREREQUISITES_VERIFIED_B1_GRADE_STILL_PENDING",
+  "latest_scope_file_sha256": "bb218730fc288a1475aa979e5ff13bea1c63a73bab2443e984ac24aa63a390c7",
+  "trials": [
+    {
+      "trial": "b0",
+      "run_id": "biofabric-sonnet5-low-b0-20261031T075228Z",
+      "status": "GRADED",
+      "process_stop_reverified_at_utc": "2026-10-31T13:06:06.455164+00:00",
+      "run_json_sha256": "72c5d996955a95a0741deef8c61c518871276a0b1929f9b420bc87fb6b8d2364",
+      "known_output_tokens": 455941,
+      "usage_sha256": "e66d3625c1214f3e2d1f2784750a3b091d4a4b7f4037f99e0b9eb9b7cae17619",
+      "ledger_sha256": "31e56fca398496b1c53b55eebf5be2ac601b65d38630416cd69315cf939802eb",
+      "in_flight_invocations": 0,
+      "counter_errors": []
+    },
+    {
+      "trial": "b1",
+      "run_id": "biofabric-sonnet5-low-b1-20261031T075228Z",
+      "status": "GRADING_CONTINUED",
+      "process_stop_reverified_at_utc": "2026-10-31T13:06:06.455164+00:00",
+      "run_json_sha256": "72d407e0a270fafd1590b4a83cecbba556569a5050680377851caa3548f12115",
+      "known_output_tokens": 819989,
+      "usage_sha256": "25e935b81318813cb96795fc057caabb9a0d20c1c1ce27d2f728d84fe25a453e",
+      "ledger_sha256": "da1358d9a58577a1786c0234f52a9ffede1c4877c52c1ea554641b4e589142e6",
+      "in_flight_invocations": 0,
+      "counter_errors": [],
+      "candidate_source_unchanged_files": 73
+    },
+    {
+      "trial": "b2",
+      "run_id": "biofabric-sonnet5-low-b2-20261031T075228Z",
+      "status": "CANCELLED_UNSCORED",
+      "process_stop_reverified_at_utc": "2026-10-31T13:06:06.455164+00:00",
+      "run_json_sha256": "068b67d53e6f1311d0fc815d9b481e9b4252518b77993bc00656ef5a6e4bfab0",
+      "known_output_tokens": 808604,
+      "usage_sha256": "d5b578288659f6db2e3546af3367cbfb3636a4ef21354c675cfd98d9e84e50ba",
+      "ledger_sha256": "3f6bed3f73b47c723dc7674c61cf0da8a8170ae36050f75abf13f14785f86023",
+      "in_flight_invocations": 0,
+      "counter_errors": [],
+      "candidate_source_unchanged_files": 73
+    },
+    {
+      "trial": "e1",
+      "run_id": "excel-haiku55-max-e1-20261031T080359Z",
+      "status": "CANCELLED_UNFINISHED_UNSCORED",
+      "process_stop_reverified_at_utc": "2026-10-31T13:06:06.455164+00:00",
+      "run_json_sha256": "2c38c7b9d29c6200521b5e5d00f772777f4ebecbdd2800a95a033f8fdbe9b345",
+      "known_output_tokens": 5481791,
+      "usage_sha256": "de1541a752d50c6f2108b03740c4320ca4201e94a8ee138f40cdef55f4ae38c1",
+      "ledger_sha256": "ea4067cc546bb22f8edc97c91c5f9c7620dc969fc40f16598c23c0cf40a8461b",
+      "in_flight_invocations": 0,
+      "counter_errors": []
+    }
+  ],
+  "score_display_script_sha256": "fc19104b0315c4cd18828cb522b78b2bcbbf6844b0714258efeddc9c744ee8c5",
+  "score_display_checks": [
+    {
+      "trial": "oracle",
+      "exit_code": 0,
+      "stdout": "Run: official-oracle\nTask: biofabric-rust-rewrite\nHidden evaluation partial score: 100.000%\nBinary reward: 1\nTests: 450 passed / 450 total\n",
+      "stderr": ""
+    },
+    {
+      "trial": "b0",
+      "exit_code": 0,
+      "stdout": "Run: biofabric-sonnet5-low-b0-20261031T075228Z\nTask: biofabric-rust-rewrite\nHidden evaluation partial score: 73.684%\nBinary reward: 0\nTests: 308 passed / 418 total\nCandidate: 3e8f8bd3c351dd2f63c0d92af81334c879029d7a\n",
+      "stderr": ""
+    },
+    {
+      "trial": "b1",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "No completed, verified hidden score is available.\n"
+    },
+    {
+      "trial": "b2",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "No hidden score saved for this run yet.\n"
+    },
+    {
+      "trial": "e1",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "No hidden score saved for this run yet.\n"
+    }
+  ],
+  "official_biofabric_engine_matches_passing_oracle": true,
+  "no_model_continuations_authorized": true
+}

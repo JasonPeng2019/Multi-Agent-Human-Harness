@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-10-31T11:52:51.572992+00:00",
+  "http_status": 200,
+  "five_hour": {
+    "utilization": 47.0,
+    "resets_at": "2026-10-31T15:40:00.499972+00:00",
+    "limit_dollars": null,
+    "used_dollars": null,
+    "remaining_dollars": null,
+    "locked_reason": null
+  }
+}

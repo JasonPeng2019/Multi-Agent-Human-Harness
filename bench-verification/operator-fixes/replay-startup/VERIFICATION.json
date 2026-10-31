@@ -1,0 +1,35 @@
+{
+  "at_utc": "2026-10-31T12:57:41.627940+00:00",
+  "epoch": "6bcd36887256450ea1c56205da908402",
+  "frame_count": 1207,
+  "startup_seconds": 0.18801210005767643,
+  "speed": 40,
+  "samples": [
+    {
+      "position": 0,
+      "seconds": 0.0015526001807302237,
+      "status": "open",
+      "lanes": 0
+    },
+    {
+      "position": 7289.871511101723,
+      "seconds": 0.03907319996505976,
+      "status": "open",
+      "lanes": 8
+    },
+    {
+      "position": 14579.743022203445,
+      "seconds": 0.05462319985963404,
+      "status": "closed",
+      "lanes": 9
+    }
+  ],
+  "recording_sha256": "4417537cceb4ab5bb1f88c2bca034e980548c64bff52975806a331ff230e6990",
+  "recording_unchanged": true,
+  "replay_unit_and_integration_tests": 35,
+  "installed_sources": {
+    "harness-single-run-version\\orchestrator_harness\\view_replay.py": "8c8c3d7a0d084e2edb00b1f1fc9e720a734e200bc9ec878519f0feb3a5fdf5b4",
+    "harness-single-run-version\\orchestrator_harness\\view_term.py": "edaaaf7f34a5680233c10e818d43e73f96b2593cefbcc67519a8e3c8a68c837d",
+    "harness-single-run-version\\orchestrator_harness\\operator_launch.py": "0fdc5ae90f697412fad555403f3d0192f1c1d3307c7b7c841365da0cf1d49026"
+  }
+}

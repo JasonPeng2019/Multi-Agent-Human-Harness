@@ -1,0 +1,24 @@
+{
+  "schema": "biofabric-assets/v1",
+  "status": "PASS",
+  "image": "swe-marathon-biofabric-rust-rewrite:host-lock-20260925",
+  "image_id": "sha256:375a34a80ed17c7d577d7896edd346331bb4bda2e550868806b0e37d6554c9dc",
+  "source_revision": "f34867643bf07aec5208a861e667e01df0942099",
+  "container": "biofabric-preparation-4a6fcf533bd6",
+  "model_launches": 0,
+  "started_at_utc": "2026-10-31T07:46:21.114223+00:00",
+  "cleanup_proven": true,
+  "container_id": "7dd463d6d01437933746960ad6d6ddc9438aff4fe040076a5ba6d7555b65ed56",
+  "resumed_after_user_pause_at_utc": "2026-10-31T07:50:57.188375+00:00",
+  "starter_compile_exit": 0,
+  "oracle_metrics": {
+    "cargo_test_exit": 0,
+    "failed": 0,
+    "ignored": 0,
+    "partial_score": 1.0,
+    "passed": 450,
+    "phase": "complete",
+    "reward": 1,
+    "scoring_mode": "binary"
+  }
+}

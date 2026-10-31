@@ -1,0 +1,64 @@
+{
+  "checked_at_utc": "2026-10-31T11:26:24.049546+00:00",
+  "checks": [
+    {
+      "trial": "b0",
+      "errors": [],
+      "known_output": 408848,
+      "inflight": 1,
+      "active_workers": []
+    },
+    {
+      "trial": "b1",
+      "errors": [],
+      "known_output": 561040,
+      "inflight": 2,
+      "active_workers": [
+        {
+          "id": "biofabric-sonnet5-low-b1-20261031T075228Z.6bcd36887256450ea1c56205da908402.lane-runners.f08c7c719081419ab059e57fc54c5c94.attempt-1",
+          "model": "claude-sonnet-5",
+          "effort": "low",
+          "skip_permissions": null,
+          "permission_observation": "Active attempt argv is sealed only after process exit; see each trial ACTIVE_WORKER_PERMISSIONS.json for actual PID-bound OS argv verification."
+        }
+      ]
+    },
+    {
+      "trial": "b2",
+      "errors": [],
+      "known_output": 479112,
+      "inflight": 3,
+      "active_workers": [
+        {
+          "id": "biofabric-sonnet5-low-b2-20261031T075228Z.f9dee1e06b9d49aca2d41d44ae9ab785.lane-10.427fb93a0df148c4979621ca7935a8cf.attempt-1",
+          "model": "claude-sonnet-5",
+          "effort": "low",
+          "skip_permissions": null,
+          "permission_observation": "Active attempt argv is sealed only after process exit; see each trial ACTIVE_WORKER_PERMISSIONS.json for actual PID-bound OS argv verification."
+        },
+        {
+          "id": "biofabric-sonnet5-low-b2-20261031T075228Z.f9dee1e06b9d49aca2d41d44ae9ab785.lane-11.ea0ee52341d6416aadfa8342e3b1dde2.attempt-1",
+          "model": "claude-sonnet-5",
+          "effort": "low",
+          "skip_permissions": null,
+          "permission_observation": "Active attempt argv is sealed only after process exit; see each trial ACTIVE_WORKER_PERMISSIONS.json for actual PID-bound OS argv verification."
+        }
+      ]
+    },
+    {
+      "trial": "e1",
+      "errors": [],
+      "known_output": 1302998,
+      "inflight": 2,
+      "active_workers": [
+        {
+          "id": "excel-haiku55-max-e1-20261031T080359Z.890bc1e92f074c5cb88d775d4dbd5f36.01-formula-parser.5aa7164ce83145eea8d0f9c1565be73c.attempt-1",
+          "model": "claude-haiku-5-5",
+          "effort": "max",
+          "skip_permissions": null,
+          "permission_observation": "Active attempt argv is sealed only after process exit; see each trial ACTIVE_WORKER_PERMISSIONS.json for actual PID-bound OS argv verification."
+        }
+      ]
+    }
+  ]
+}

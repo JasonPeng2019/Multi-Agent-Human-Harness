@@ -1,0 +1,47 @@
+{
+  "at_utc": "2026-10-31T13:38:49.561483+00:00",
+  "script_sha256": "dea9520b5ff27f5f8fe99261415e7f1965277e677b7d325bdc338796e63f828d",
+  "status": "PASS",
+  "latest_user_request": "actually ,dont add those to the script.",
+  "token_comparison_removed": true,
+  "default": "complete final supervised Terra batch",
+  "official_score_source": "authenticated official run-log manifest and each canonical verifier metric; not website totals",
+  "terminal_checks": [
+    {
+      "flags": [],
+      "exit_code": 0,
+      "score_only_output": true,
+      "json_contains_no_token_fields": true,
+      "stdout": "Zstd decoder | GPT-5.6-terra | HIGH effort\nComplete latest historical supervised workflow-1 Terra batch found: both arms, without filtering by score. Earlier selected successes remain a separate report.\n  zstd-w1-fixed-two-20261015-w1-r01: 58.1% (25/43; hidden 22/37)\n    Workflow outcome: deadline_expired\n  zstd-w1-fixed-two-20261015-w1-r02: 100.0% (43/43; hidden 37/37)\n    Workflow outcome: genuine_blocker\nFinal-batch average: 79.05%; best: 100.0%\nSWE-Marathon v1.1 Terra HIGH (n=8): average 47.4%; best 58.1%\nSource: official manifest + canonical result counters + verifier metrics; saved offline.\n"
+    },
+    {
+      "flags": [
+        "--final-batch"
+      ],
+      "exit_code": 0,
+      "score_only_output": true,
+      "json_contains_no_token_fields": true,
+      "stdout": "Zstd decoder | GPT-5.6-terra | HIGH effort\nComplete latest historical supervised workflow-1 Terra batch found: both arms, without filtering by score. Earlier selected successes remain a separate report.\n  zstd-w1-fixed-two-20261015-w1-r01: 58.1% (25/43; hidden 22/37)\n    Workflow outcome: deadline_expired\n  zstd-w1-fixed-two-20261015-w1-r02: 100.0% (43/43; hidden 37/37)\n    Workflow outcome: genuine_blocker\nFinal-batch average: 79.05%; best: 100.0%\nSWE-Marathon v1.1 Terra HIGH (n=8): average 47.4%; best 58.1%\nSource: official manifest + canonical result counters + verifier metrics; saved offline.\n"
+    },
+    {
+      "flags": [
+        "--selected-successes"
+      ],
+      "exit_code": 0,
+      "score_only_output": true,
+      "json_contains_no_token_fields": true,
+      "stdout": "Zstd decoder | GPT-5.6-terra | HIGH effort\nThree selected local runs; not all local experiments.\n  zstd-skills-four-20261015-w1-r01: 100.0% (43/43; hidden 37/37)\n  zstd-skills-four-20261015-w1-r02: 100.0% (43/43; hidden 37/37)\n  zstd-w1-fixed-two-20261015-w1-r02: 100.0% (43/43; hidden 37/37)\nSelected local average: 100.00%; best: 100.0%\nSWE-Marathon v1.1 Terra HIGH (n=8): average 47.4%; best 58.1%\nSource: official manifest + canonical result counters + verifier metrics; saved offline.\n"
+    },
+    {
+      "flags": [
+        "--swe-only"
+      ],
+      "exit_code": 0,
+      "score_only_output": true,
+      "json_contains_no_token_fields": true,
+      "stdout": "Zstd decoder | GPT-5.6-terra | HIGH effort\nSWE-Marathon v1.1 Terra HIGH (n=8): average 47.4%; best 58.1%\nSource: official manifest + canonical result counters + verifier metrics; saved offline.\n"
+    }
+  ],
+  "max_token_question_evidence": "bench-verification/operator-research/terra-max-zstd-token-audit.json",
+  "max_counts_added_to_script": false
+}

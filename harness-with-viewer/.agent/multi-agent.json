@@ -1,0 +1,61 @@
+{
+  "schema": "portable-multi-agent/v2",
+  "defaults": {
+    "runtime_directory": ".agent-runtime/multi-agent",
+    "heartbeat_interval_seconds": 30,
+    "max_parallel_agents": 3
+  },
+  "agents": {
+    "generic-cli": {
+      "enabled": false,
+      "command": [
+        "REPLACE_WITH_YOUR_AGENT_CLI",
+        "--prompt-file",
+        "{prompt_file}"
+      ],
+      "roles": [
+        "investigator",
+        "implementer",
+        "reviewer",
+        "verifier"
+      ],
+      "environment": {}
+    },
+    "claude-cli": {
+      "enabled": false,
+      "command": [
+        "bash",
+        "{workspace}/.agent/pipe-prompt-file.sh",
+        "{prompt_file}",
+        "--",
+        "claude",
+        "-p"
+      ],
+      "roles": [
+        "investigator",
+        "implementer",
+        "reviewer",
+        "verifier"
+      ],
+      "environment": {}
+    },
+    "codex-cli": {
+      "enabled": false,
+      "command": [
+        "bash",
+        "{workspace}/.agent/pipe-prompt-file.sh",
+        "{prompt_file}",
+        "--",
+        "codex",
+        "exec"
+      ],
+      "roles": [
+        "investigator",
+        "implementer",
+        "reviewer",
+        "verifier"
+      ],
+      "environment": {}
+    }
+  }
+}

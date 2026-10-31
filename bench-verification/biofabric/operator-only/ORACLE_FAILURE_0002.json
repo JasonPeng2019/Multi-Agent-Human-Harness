@@ -1,0 +1,1 @@
+{"reason": "Previously interrupted compilation cache contains invalid Rust metadata; reject zero-test result. Clean target and disable incremental compilation before independent rerun."}

@@ -1,0 +1,37 @@
+{
+  "status": "GRADED",
+  "run_id": "zstd-w1-fixed-two-20261015-w1-r01",
+  "arm": "w1-r01",
+  "candidate_revision": "9a1d579e502a2e7870930a91a0dcd1610d5502a6",
+  "source_tree": "25e76bc2e9576bf1fff31cdaf41d43725f07c05f",
+  "candidate_sha256": {
+    "src/harness.c": "b6582e0835afbbc2248ccd4f6b9c5e8a247994f3aa77b51a29579dfae20120e7",
+    "src/Makefile": "ce19d21c30ad45dee391bc0e0f13f7966e94164660411d43e77fe46ed2734327",
+    "src/zstd_decompress.c": "cefabbe251c7e407ebfc32e48f3a2e69d3dea11dabdc911d7463a3f8709724d8",
+    "src/zstd_decompress.h": "99700224086e38dfd61f034411a6020ff3928463a4eb6ee0ef8a6f1d4e9d8c45"
+  },
+  "image_id": "sha256:cfe037596ca5fd52d050f98a75ba5b9b74fa45d909ea55002c57bab7157659fb",
+  "sealed_verifier_sha256": "d1674c434ab1f5f277ad39c548115bd12de83503affd1bbb9b3b46b1e6b6fd3e",
+  "started_at_utc": "2026-10-15T17:28:01.898905+00:00",
+  "model_launches": 0,
+  "feedback_to_live_roots": false,
+  "evaluation_attempts": 1,
+  "both_trials_and_continuations_ended": true,
+  "container": "e1a3abe93768b48cc870a0393d8f8da98a34bafb4989b94b013b4294f72dad4b",
+  "build_exit_code": 0,
+  "verifier_exit_code": 1,
+  "metrics": {
+    "public_passed": 3,
+    "public_failed": 3,
+    "public_total": 6,
+    "hidden_passed": 22,
+    "hidden_failed": 15,
+    "hidden_total": 37,
+    "total_passed": 25,
+    "total_tests": 43,
+    "partial_score": 0.581
+  },
+  "container_removed": true,
+  "source_bytes_unchanged": true,
+  "ended_at_utc": "2026-10-15T17:28:19.356549+00:00"
+}

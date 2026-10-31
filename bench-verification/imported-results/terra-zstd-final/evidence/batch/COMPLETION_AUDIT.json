@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-15T17:36:02.852144+00:00",
+  "scope": "Requested two-run experiment, supervision, timestamp capture, post-run scoring and earliest-match proof; does not assert full task/workflow success.",
+  "requirements": {
+    "two_workflow_1_trials_with_unchanged_prompt_skills_and_requested_settings": "PASS",
+    "fresh_isolated_empty_memory_and_prelaunch_health": "PASS",
+    "all_reported_finishes_preserved_and_audited": "PASS",
+    "same_session_operator_continuations_with_unchanged_deadlines": "PASS",
+    "both_runs_terminal_and_exact_recorded_processes_absent": "PASS",
+    "all_root_integrations_archived_with_verified_reflog_timestamps": "PASS",
+    "pinned_calibrated_hidden_evaluation_only_after_both_runs_ended": "PASS",
+    "earliest_final_score_match_proven_by_checking_prior_distinct_sources": "PASS",
+    "root_plus_worker_usage_reconciled_and_archived": "PASS"
+  },
+  "arms": [
+    {
+      "arm": "w1-r01",
+      "first_match_revision": "249a2c8652f9b15e61164bf9ef855d9de50ce194",
+      "earlier_updates_checked": 1,
+      "all_earlier_distinct_sources_evaluated": true,
+      "final_score": 0.581,
+      "workflow_outcome": "deadline_expired",
+      "resumes": 3,
+      "supplied_skills_unchanged": true
+    },
+    {
+      "arm": "w1-r02",
+      "first_match_revision": "1fd1f7ae87e5a728a6d77e2954a9fd98a5372034",
+      "earlier_updates_checked": 41,
+      "all_earlier_distinct_sources_evaluated": true,
+      "final_score": 1.0,
+      "workflow_outcome": "genuine_blocker",
+      "resumes": 2,
+      "supplied_skills_unchanged": true
+    }
+  ],
+  "graded_candidates_verified": 42,
+  "process_identities_checked": 7398
+}

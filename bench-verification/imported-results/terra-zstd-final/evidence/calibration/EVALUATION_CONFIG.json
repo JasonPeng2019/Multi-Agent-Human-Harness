@@ -1,0 +1,14 @@
+{
+  "schema": "zstd-evaluation-config/v1",
+  "image_tag": "swe-marathon-zstd-decoder:asset-repair-v2-20261015",
+  "image_id": "sha256:cfe037596ca5fd52d050f98a75ba5b9b74fa45d909ea55002c57bab7157659fb",
+  "upstream_pin": "f34867643bf07aec5208a861e667e01df0942099",
+  "verifier_lf_sha256": "d1674c434ab1f5f277ad39c548115bd12de83503affd1bbb9b3b46b1e6b6fd3e",
+  "asset_manifest": "ASSET_MANIFEST.json",
+  "oracle_calibration": "evaluations/oracle-v2/grading.json",
+  "required_oracle_passes": 43,
+  "public_total": 6,
+  "hidden_total": 37,
+  "historical_makefile_baseline_preserved": true,
+  "model_launch_authorized": false
+}

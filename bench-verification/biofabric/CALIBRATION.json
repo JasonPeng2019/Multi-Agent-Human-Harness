@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "task": "biofabric-rust-rewrite",
+  "engine_sha256": "d73b0806977c67c4351e996ce4ac4e810b0aa91cf1285cca8234d78b72378215",
+  "oracle_grading_record": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\biofabric\\operator-only\\engine-oracle-20261031T080501Z\\hidden-evaluation\\grading.json",
+  "oracle_partial_score": 1.0,
+  "oracle_binary_reward": 1,
+  "oracle_passed": 450,
+  "oracle_failed": 0,
+  "cleanup_proven": true,
+  "verified_at_utc": "2026-10-31T08:14:58.922193+00:00",
+  "display_script": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator-Harness-Hackathon-Benchmark\\bench-verification\\tools\\score_run.py",
+  "display_script_sha256": "e8e2d8c03dd25c49a89052b4a2c01b8ffc4f850f16a9c3136af8b63d5bcb7841"
+}

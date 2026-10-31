@@ -1,0 +1,6 @@
+{
+  "status": "USER_PAUSE_THEN_RESUME",
+  "first_process_interrupted": true,
+  "model_launches": 0,
+  "diagnosis": "User accidentally paused; public template extraction completed. Oracle calibration was not recorded. Resume only after confirming operator container identity and public inputs."
+}

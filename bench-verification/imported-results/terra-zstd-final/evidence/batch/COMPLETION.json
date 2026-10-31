@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETE",
+  "at_utc": "2026-10-15T17:37:35.188339+00:00",
+  "runs": [
+    {
+      "arm": "w1-r01",
+      "score": 0.581,
+      "first_matching_at_utc": "2026-10-15T12:44:16+00:00",
+      "first_matching_elapsed_wall_seconds": 1100.741
+    },
+    {
+      "arm": "w1-r02",
+      "score": 1.0,
+      "first_matching_at_utc": "2026-10-15T16:06:32+00:00",
+      "first_matching_elapsed_wall_seconds": 13236.59
+    }
+  ],
+  "artifacts": {
+    "RESULTS.md": "78eae9843125f9a36b8b01ba64f99bfbd3e3a15898510d242ebb51739b22c3d1",
+    "COMPLETION_AUDIT.json": "18fe8f308e7b4ef08be297cee9739af0cce175dcdc3d9cdf79813592de81889a",
+    "FIRST_FINAL_SCORE_RESULTS.json": "314548ad2a21c2e3e991b4b5f6b9727c38894784d1233aee1dc2d19c562824fb",
+    "INTEGRATION_TIMELINE.md": "4c0216735e0bc13439a3d70462496c96e73a7db67885df0adc15c5a5050bd945",
+    "INTEGRATION_ARCHIVE_CHECK_FINAL.json": "b30fab8fdd1f9760397fdd152a8d3216ec61e9ba045543658a83bbca71e8cd45",
+    "FINAL_USAGE_SUMMARY.json": "eeddd21bee90175c2d94a37adc8046d6ea4b0ca2e33bb5f42509760b9ea3b9f6",
+    "STOPPED_RUNS.json": "3c594eb6b60c9333505f4ae13e33cf6f1a913beab28539cfd18e0da389e8ae4f"
+  }
+}
